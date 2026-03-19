@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Test 2.md",
+                "file": "docs/Test 2.md",
                 "mode": "source",
                 "source": false
               },
@@ -166,8 +166,8 @@
       "bases:Create new base": false
     }
   },
-  "active": "ada731197fe75692",
+  "active": "2ab849a3ded7361f",
   "lastOpenFiles": [
-    "Test 2.md"
+    "docs/Test 2.md"
   ]
 }
