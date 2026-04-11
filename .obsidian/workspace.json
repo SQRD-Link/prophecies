@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "prive/huizenjacht/Biedingsbrief - Zijlroede 90.md",
+                "file": "docs/inbox.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Biedingsbrief - Zijlroede 90"
+              "title": "inbox"
             }
           }
         ]
@@ -184,11 +184,16 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "4de5df9f540ec28e",
+  "active": "93416af105fafe23",
   "lastOpenFiles": [
+    "docs/index.md",
+    "vault-structuur.md",
+    "README.md",
+    "README.md",
+    "docs/Questy - Onboarding AI Agent Persona.md",
+    "prive/huizenjacht/Biedingsbrief - Zijlroede 90.md",
     "docs/attachements",
     "werk/Plesk Documentatie Links.md",
-    "prive/huizenjacht/Biedingsbrief - Zijlroede 90.md",
     "prive/huizenjacht/Biedingsbrief - Ereprijs 17.md",
     "prive/dagboek/2022/November/2022-11-10.md",
     "prive/dagboek/2022/November/2022-11-03.md",
@@ -209,10 +214,6 @@
     "prive/dagboek/2023/05-mei/donderdag 25 mei 2023.md",
     "prive/dagboek/2023/05-mei/donderdag 11 mei 2023.md",
     "prive/dagboek/2023/04-april/Sunday 30th Apr 2023.md",
-    "prive/dagboek/2023/04-april/Saturday 29th Apr 2023.md",
-    "prive/dagboek/2023/04-april/Saturday 29 April 2023.md",
-    "prive/dagboek/2023/04-april/Friday 28 April 2023.md",
-    "prive/dagboek/2023/04-april/07 april  2023.md",
     "prive/dagboek/2023/10-oktober",
     "prive/dagboek/2023/09-September",
     "prive/dagboek/2023/06-juni",
@@ -221,7 +222,6 @@
     "prive/dagboek/2023/03- maart",
     "prive/dagboek/2023/02- februari",
     "prive/dagboek/2023/01-Januari",
-    "prive/dagboek/2022/Oktober",
     "Old vault/systeembeheer/Update optimalisatie/Updates Dagplanning.canvas",
     "Old vault/systeembeheer/Update optimalisatie/Timeline copy.canvas",
     "Old vault/systeembeheer/Update optimalisatie/Timeline copy-HP-845-Richard.canvas",
