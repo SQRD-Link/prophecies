@@ -1,2 +1,0 @@
-
-https://getdeploying.com/gpus
