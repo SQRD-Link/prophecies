@@ -15,10 +15,306 @@ created: 2026-04-11
 
 <!-- inbox -->
 
-- 2026-04-15 — 💡 **Idee:** https://www.instagram.com/p/DWhDaCOk0-M/?img_index=3&igsh=MXU5OXM1ZzJhNXBvYw%3D%3D
-
 - 2026-04-11 — [Full-stack vibe coding in Google AI Studio](https://blog.google/innovation-and-ai/technology/developers-tools/full-stack-vibe-coding-google-ai-studio/)
 - 2026-04-15 — 💡 **Idee:** test
+
+---
+
+## 📦 WhatsApp import (2023–2026)
+
+- 2023-04-21 — https://cs50.medium.com/providing-students-with-standardized-cloud-based-programming-environments-at-terms-start-for-a82b0e5c4fae
+- 2023-04-22 — 🎥 **Video:** https://youtu.be/ODhHTngIMJE
+- 2023-07-01 — https://www.virtualizationhowto.com/2023/06/homarr-sleek-home-lab-dashboard-for-server-monitoring/
+- 2023-07-09 — https://www.vvponline.nl/nieuws/minder-hypotheek-met-mobiliteitsbudget
+- 2023-07-09 — https://sadservers.com/
+- 2023-08-01 — https://www.netdata.cloud/
+- 2023-08-08 — 📖 **Reddit:** https://www.reddit.com/r/linux/comments/15kgrz3/vulnerable_redis_services_have_been_targeted_by_a/
+- 2023-08-08 — 🛠️ **GitHub:** https://github.com/netdevopsbr/netbox-proxbox
+- 2023-08-21 — 📖 **Reddit:** https://www.reddit.com/r/linux/comments/15xbkte/grep_cheatsheet_for_sysadmins/
+- 2023-09-05 — https://goauthentik.io/docs/installation/docker-compose
+- 2023-09-06 — 📖 **Reddit:** https://reddit.com/r/sysadmin/s/w0qe1gxHwt
+- 2023-09-06 — https://www.start24.nl/cloud86-interview/
+- 2023-09-28 — https://www.artofinfra.com/install-netbox-on-proxmox-docker/
+- 2023-09-28 — https://notawful.org/installing-and-troubleshooting-netbox/
+- 2023-10-01 — https://www.virtualizationhowto.com/2023/09/graylog-docker-compose-setup-an-open-source-syslog-server-for-home-labs/
+- 2023-10-01 — https://stackoverflow.com/questions/72960343/how-do-i-run-ansible-galaxy-installations-using-awx
+- 2023-10-04 — 📖 **Reddit:** https://reddit.com/r/awx/s/TJllSradzi
+- 2023-10-05 — https://tweakers.net/plan/3988/de-innovatieve-it-van-de-rdw-in-de-voetsporen-van-tesla.html
+- 2023-10-08 — https://www.linuxatemyram.com/
+- 2023-10-17 — 🛠️ **GitHub:** https://github.com/paperless-ngx/paperless-ngx
+- 2023-10-21 — https://www.tomshardware.com/news/windows-software-bitlocker-slows-performance
+- 2023-10-31 — 📖 **Reddit:** https://www.reddit.com/r/zfs/comments/kq9asu/repurposed_a_qnap_ts451_with_truenas_12/
+- 2023-11-05 — https://osxlatitude.com/forums/topic/9179-dell-latitude-e7x70-clover-and-opencore/#comment-120689
+- 2023-11-05 — 🎥 **Video:** https://youtu.be/TQur9GJHIIQ
+- 2023-11-05 — 📖 **Reddit:** https://www.reddit.com/r/ansible/s/ECVoa6KBkV
+- 2023-11-09 — https://squidfunk.github.io/mkdocs-material/
+- 2023-11-12 — 📖 **Reddit:** https://www.reddit.com/r/homelab/s/4B6fqKI1F9
+- 2023-11-16 — https://kinsta.com/learn/speed-up-wordpress/
+- 2023-11-18 — 📖 **Reddit:** https://www.reddit.com/r/homeassistant/s/c6cyHbgt7J
+- 2023-11-22 — 📖 **Reddit:** https://www.reddit.com/r/selfhosted/s/rTxRhp2QwG
+- 2023-12-09 — https://ciq.com/products/ascender/
+- 2023-12-10 — https://www.google.com/search?q=learn+in+public
+- 2023-12-18 — 📖 **Reddit:** https://www.reddit.com/r/toptalent/s/BEmuup7lYk
+- 2023-12-18 — 📖 **Reddit:** https://www.reddit.com/r/homeassistant/s/t5LZwhZscZ
+- 2023-12-23 — https://www.bax-shop.nl/grootmembraan-condensatormicrofoons/mxl-990-grootmembraan-condensator-microfoon
+- 2023-12-25 — 📖 **Reddit:** https://www.reddit.com/r/interestingasfuck/s/kF6aKWE2tC
+- 2023-12-30 — 📖 **Reddit:** https://www.reddit.com/r/JustGuysBeingDudes/s/j73DRgPMm9
+- 2024-01-11 — 🛠️ **GitHub:** https://github.com/jordanhillis/pvekclean
+- 2024-01-19 — 📖 **Reddit:** https://www.reddit.com/r/selfhosted/s/EMO4sAkBap
+- 2024-01-24 — https://git.lucasserver.de/lucas/netbox-proxmox-sync-rebuild
+- 2024-01-27 — 🎥 **Video:** https://youtu.be/Wb9iwFk3atA
+- 2024-01-29 — 📖 **Reddit:** https://www.reddit.com/r/ObsidianMD/comments/n7adun/working_with_multiple_repos/
+- 2024-02-03 — https://nerdyarticles.com/a-clutter-free-life-with-paperless-ngx/
+- 2024-02-03 — 🎥 **Video:** https://youtu.be/g5wgXmOqcMY?si=lQdDkI3lHTPEYM4m
+- 2024-02-07 — https://www.derekseaman.com/2023/04/how-to-setup-synology-nfs-for-proxmox-backup-server-datastore.html
+- 2024-02-10 — https://companion.home-assistant.io/docs/integrations/siri-shortcuts/
+- 2024-02-16 — 📖 **Reddit:** https://www.reddit.com/r/selfhosted/s/op3SPW9CBO
+- 2024-02-18 — 📖 **Reddit:** https://www.reddit.com/r/homeassistant/s/sezkWPDRCz
+- 2024-02-19 — https://www.hetkookclubje.nl/
+- 2024-02-19 — https://winscp.net/eng/docs/guide_windows_ftps_server
+- 2024-02-19 — 📖 **Reddit:** https://www.reddit.com/r/devops/s/mGXkLKFcYc
+- 2024-02-25 — 📖 **Reddit:** https://www.reddit.com/r/InternetIsBeautiful/s/TV6ttLkVt5
+- 2024-03-02 — 📖 **Reddit:** https://www.reddit.com/r/homeassistant/s/03qS9iXrzG
+- 2024-03-10 — 📖 **Reddit:** https://www.reddit.com/r/DutchHipHop/s/LocCNrBFAr
+- 2024-03-15 — 📖 **Reddit:** https://www.reddit.com/r/lego/s/k6OFyelEtQ
+- 2024-03-17 — 📖 **Reddit:** https://www.reddit.com/r/github/s/2tBqKPBqzR
+- 2024-03-17 — 🎥 **Video:** https://youtu.be/dd5t3vBOZUM
+- 2024-03-29 — https://www.redhat.com/en/interactive-labs
+- 2024-04-01 — https://roadmap.sh/devops
+- 2024-04-01 — https://www.hortusfox.com/
+- 2024-04-03 — 📖 **Reddit:** https://www.reddit.com/r/ObsidianMD/s/znkjod6f7n
+- 2024-04-13 — https://apolloautomation.com/products/multisensor-mk1
+- 2024-04-16 — 📖 **Reddit:** https://www.reddit.com/r/ContagiousLaughter/s/zEmh323Fwh
+- 2024-04-26 — https://opentelemetry.io/blog/2024/scaling-collectors/
+- 2024-05-01 — 🛠️ **GitHub:** https://github.com/javalent/admonitions
+- 2024-05-05 — https://tomsitcafe.com/category/ansible-basics-course/
+- 2024-05-10 — https://hdo.app/
+- 2024-05-25 — http://www.shaduzlabs.com/blog/17/hacking-maschine-how-it-all-started.html
+- 2024-06-06 — https://blog.scheib.me/2024/06/04/efficient-ansible-code.html
+- 2024-06-06 — 📖 **Reddit:** https://www.reddit.com/r/ansible/s/ZOdjRQNDkr
+- 2024-06-09 — https://mywiki.wooledge.org/BashGuide
+- 2024-06-18 — 📖 **Reddit:** https://www.reddit.com/r/HomeKit/s/Kp2Syp5pjL
+- 2024-06-19 — https://www.xomedia.io/linux-system-tuning/
+- 2024-06-21 — http://www.catb.org/~esr/faqs/smart-questions.html
+- 2024-06-29 — https://melodics.com/
+- 2024-06-29 — 📖 **Reddit:** https://www.reddit.com/r/Minecraft/s/kl28yYo7vJ
+- 2024-06-30 — 📖 **Reddit:** https://www.reddit.com/r/bash/s/UqAOvCcUey
+- 2024-07-02 — https://grocy.info/
+- 2024-07-06 — 📖 **Reddit:** https://www.reddit.com/r/unixporn/s/nUNDyKMk1k
+- 2024-07-14 — 📖 **Reddit:** https://www.reddit.com/r/linuxadmin/s/ZYkLgwomnB
+- 2024-07-23 — https://open.spotify.com/episode/7rOZ6ghT6nVQhCQorLoykd?si=FYawgc2JQkaYT5_q-MafRg
+- 2024-07-24 — 📖 **Reddit:** https://www.reddit.com/r/selfhosted/s/6vnoMbMTXt
+- 2024-07-28 — https://www.heyvaldemar.com/install-outline-and-keycloak-using-docker-compose/
+- 2024-07-28 — https://blog.gurucomputing.com.au/Knowledgebases%20with%20Outline/Installing%20Outline%20Knowledgebase/
+- 2024-07-30 — 📖 **Reddit:** https://www.reddit.com/r/bash/s/P5Wb282Dtk
+- 2024-08-08 — 📖 **Reddit:** https://www.reddit.com/r/homelab/s/Jezk7xybrS
+- 2024-08-18 — 📖 **Reddit:** https://www.reddit.com/r/homeassistant/s/ftQZRpYM6x
+- 2024-08-20 — 📖 **Reddit:** https://www.reddit.com/r/interestingasfuck/s/aZyDIt2diA
+- 2024-09-03 — 📖 **Reddit:** https://www.reddit.com/r/interestingasfuck/s/h6QlLE2iAf
+- 2024-09-04 — https://cwiki.apache.org/confluence/display/spamassassin/CustomRulesets
+- 2024-09-09 — 🛠️ **GitHub:** https://github.com/icloud-photos-downloader/icloud_photos_downloader
+- 2024-09-09 — 📖 **Reddit:** https://www.reddit.com/r/shortcuts/comments/kf6m1v/how_to_create_a_separate_album_with_only_iphones/
+- 2024-09-10 — https://www.ledstripxl.nl/wifi-controller-sp108e-voor-digitale-ledstrips.html
+- 2024-09-11 — https://www.cellos.blog/spotify-made-my-daughter-cry-home-assistant-made-her-smile-again/
+- 2024-09-14 — 📖 **Reddit:** https://www.reddit.com/r/sysadmin/s/LxudLKqZ5Y
+- 2024-09-18 — 🛠️ **GitHub:** https://github.com/jorenn92/Maintainerr
+- 2024-09-22 — 📖 **Reddit:** https://www.reddit.com/r/coolguides/s/0JOcLGqRTw
+- 2024-09-22 — https://community.home-assistant.io/t/automatic-scene-switch-when-playing-media-extended/17104
+- 2024-09-29 — 📖 **Reddit:** https://www.reddit.com/r/beleggen/s/4MbScRaisM
+- 2024-10-01 — 📖 **Reddit:** https://www.reddit.com/r/interestingasfuck/s/cwq502xX29
+- 2024-10-01 — https://neushoorn.nl/production/master-boot-record/
+- 2024-10-04 — 🛠️ **GitHub:** https://github.com/xpipe-io/xpipe
+- 2024-10-06 — 📖 **Reddit:** https://www.reddit.com/r/ikeahacks/s/HuEsDdWqZC
+- 2024-10-12 — 📖 **Reddit:** https://www.reddit.com/r/selfhosted/s/K98xUaKOsI
+- 2024-10-16 — 📖 **Reddit:** https://www.reddit.com/r/unixporn/s/xZXFzAyDVr
+- 2024-10-18 — 📖 **Reddit:** https://www.reddit.com/r/ContagiousLaughter/s/MfR42I85X4
+- 2024-10-18 — https://www.marstoy.net/products/moc-the-game-console
+- 2024-10-20 — https://learn.sparkfun.com/tutorials/how-to-install-ch340-drivers/all
+- 2024-10-20 — https://www.occamsprotocol.com/
+- 2024-10-23 — 📖 **Reddit:** https://www.reddit.com/r/technology/s/pxkfdifCxD
+- 2024-10-25 — 📖 **Reddit:** https://www.reddit.com/r/WLED/s/HauB0tY22x
+- 2024-10-27 — 📖 **Reddit:** https://www.reddit.com/r/EufyCam/s/jS03U3Onrs
+- 2024-11-02 — 📖 **Reddit:** https://www.reddit.com/r/lego/s/AlWbn9owa2
+- 2024-11-06 — 📖 **Reddit:** https://www.reddit.com/r/ChatGPT/s/CJSYltnCyt
+- 2024-11-13 — 📖 **Reddit:** https://www.reddit.com/r/admincraft/s/jb15UnyvWw
+- 2024-11-17 — https://www.ncoi.nl/opleiding/masterprogramma-learning-and-development.html
+- 2024-11-19 — 📖 **Reddit:** https://www.reddit.com/r/ObsidianMD/s/EBcuYlUG2N
+- 2024-11-22 — 🛠️ **GitHub:** https://github.com/Leantime/leantime
+- 2024-11-25 — 📖 **Reddit:** https://www.reddit.com/r/interestingasfuck/s/YQxonNw2T6
+- 2024-11-30 — 📖 **Reddit:** https://www.reddit.com/r/LifeProTips/s/axBEi1sbTZ
+- 2024-12-05 — 📖 **Reddit:** https://www.reddit.com/r/shortcuts/s/EEeodOc5gw
+- 2024-12-05 — 📖 **Reddit:** https://www.reddit.com/r/ObsidianMD/s/26usDDB3OO
+- 2024-12-07 — 📖 **Reddit:** https://www.reddit.com/r/homeassistant/s/VvdoCLMVff
+- 2024-12-08 — 📖 **Reddit:** https://www.reddit.com/r/homelab/s/yC5d4YbI8U
+- 2024-12-08 — 📖 **Reddit:** https://www.reddit.com/r/selfhosted/s/5eLOfSSEUj
+- 2024-12-10 — 📖 **Reddit:** https://www.reddit.com/r/sonarr/s/un6HuAS3Zz
+- 2024-12-11 — 📖 **Reddit:** https://www.reddit.com/r/ObsidianMD/s/doNsIfyZN3
+- 2024-12-14 — 📖 **Reddit:** https://www.reddit.com/r/sonarr/s/hMSUmh5t7H
+- 2024-12-18 — 📖 **Reddit:** https://www.reddit.com/r/bazarr/s/vsTmz6hniH
+- 2024-12-18 — 📖 **Reddit:** https://www.reddit.com/r/ObsidianMD/s/6s1udOdzJE
+- 2024-12-22 — 🛠️ **GitHub:** https://github.com/trip5/ESPHome-eInk-Boards
+- 2024-12-26 — 📖 **Reddit:** https://www.reddit.com/r/Wordpress/s/h8NggoK5wc
+- 2024-12-26 — 📖 **Reddit:** https://www.reddit.com/r/selfhosted/s/1XV2c5Iiaq
+- 2024-12-29 — 📖 **Reddit:** https://www.reddit.com/r/homeassistant/s/KQLmIucUdi
+- 2024-12-29 — 📖 **Reddit:** https://www.reddit.com/r/ObsidianMD/s/Kdm6oiS2Kz
+- 2025-01-05 — 📖 **Reddit:** https://www.reddit.com/r/selfhosted/s/7mHVru6tXw
+- 2025-01-09 — 🎥 **Video:** http://youtube.com/post/UgkxKH-MmWe0wMQJN-5_H-ZwhrnPNgknx2v1?si=m0Teys9V9HirT7PT
+- 2025-01-11 — https://goaccess.io/
+- 2025-01-18 — 🛠️ **GitHub:** https://github.com/community-scripts/ProxmoxVE/discussions/13
+- 2025-01-18 — https://community-scripts.github.io/ProxmoxVE/scripts?id=wallos
+- 2025-01-27 — 📖 **Reddit:** https://www.reddit.com/r/technology/s/7vsHB7W7S7
+- 2025-01-31 — 📖 **Reddit:** https://www.reddit.com/r/selfhosted/s/nGog6o1qHk
+- 2025-02-11 — 📖 **Reddit:** https://www.reddit.com/r/Litespeed/s/duY0OMvS6U
+- 2025-02-19 — 📖 **Reddit:** https://www.reddit.com/r/homeassistant/s/QJYiG9t3Tl
+- 2025-02-21 — https://blog.gurucomputing.com.au/Outline%20Knowledgebase%20Deployment/
+- 2025-02-25 — 📖 **Reddit:** https://www.reddit.com/r/technology/s/lBYgeWKoSP
+- 2025-03-02 — https://notebooklm.google.com/notebook/5c8a3c82-2230-420c-8940-e208b1b6d5a3
+- 2025-03-03 — 🛠️ **GitHub:** https://github.com/Sophokles187/data-cards
+- 2025-03-03 — 📖 **Reddit:** https://www.reddit.com/r/ObsidianMD/s/3aRiGOpGTZ
+- 2025-03-04 — 📖 **Reddit:** https://www.reddit.com/r/ObsidianMD/s/eiJCX21Ugc
+- 2025-03-04 — 📖 **Reddit:** https://www.reddit.com/r/EmulationOnAndroid/s/KR3HCAz6Ur
+- 2025-03-10 — https://www.obsidianstats.com/posts/2025-03-10-weekly-plugin-updates
+- 2025-03-11 — https://www.promptingguide.ai/
+- 2025-03-12 — https://platform.openai.com/docs/overview
+- 2025-03-14 — 📖 **Reddit:** https://www.reddit.com/r/ObsidianMD/s/Za6f4n0qPo
+- 2025-03-24 — 📖 **Reddit:** https://www.reddit.com/r/selfhosted/s/KnxhF1q8HV
+- 2025-03-31 — 📖 **Reddit:** https://www.reddit.com/r/n8n/s/EnORkBEfyi
+- 2025-04-06 — 📖 **Reddit:** https://www.reddit.com/r/selfhosted/s/RokEQuqzb4
+- 2025-04-07 — 📖 **Reddit:** https://www.reddit.com/r/ObsidianMD/s/U3pqahxkIb
+- 2025-04-16 — https://brunoj.com/obsidian-my-way-an-overview-of-my-stack/
+- 2025-04-18 — 📖 **Reddit:** https://www.reddit.com/r/PromptEngineering/s/PF6gXbKzqs
+- 2025-04-20 — 📖 **Reddit:** https://www.reddit.com/r/coolguides/s/sQTAXexy3J
+- 2025-04-20 — 🎥 **Video:** https://youtu.be/DHGbf99pJ7k?si=y5dokEwjYYcG6nkd
+- 2025-04-30 — https://blockifylab.com/
+- 2025-04-30 — https://www.norai.fi/courses/prompt-engineering-mastery-from-foundations-to-future/
+- 2025-05-14 — 📖 **Reddit:** https://www.reddit.com/r/coolguides/s/QJmLfua7ys
+- 2025-05-18 — 🛠️ **GitHub:** https://github.com/Chivo-Systems/Shinar
+- 2025-05-18 — https://www.checklyhq.com/blog/dns-debugging-deep-dive/
+- 2025-05-19 — 📖 **Reddit:** https://www.reddit.com/r/PromptEngineering/s/Q2GwG1zq36
+- 2025-05-21 — 📖 **Reddit:** https://www.reddit.com/r/admincraft/s/8MupgncMLU
+- 2025-05-25 — https://www.marktplaats.nl/v/audio-tv-en-foto/home-cinema-sets/m2260342588-wharfedale-home-cinema
+- 2025-05-27 — 📖 **Reddit:** https://www.reddit.com/r/InternetIsBeautiful/s/Qsrc76mJhN
+- 2025-05-28 — 📖 **Reddit:** https://www.reddit.com/r/selfhosted/s/4IuvLWB97e
+- 2025-05-31 — https://www.printables.com/model/1313544-elitedeskprodesk-mini-nas
+- 2025-05-31 — https://govigilant.io/articles/vigilant-reached-100-stars-on-github
+- 2025-06-07 — 🎥 **Video:** http://youtube.com/post/Ugkx05D9G7HqfdytyvDj99VhI8Yv2V_FIqRL?si=8VX_uIgs5Vl84gla
+- 2025-06-09 — https://graisol.com/blog/advanced-prompt-engineering-techniques
+- 2025-06-10 — https://www.hovergpt.ai/
+- 2025-06-11 — 📖 **Reddit:** https://www.reddit.com/r/soldering/s/YkovWVClPG
+- 2025-06-16 — 📖 **Reddit:** https://www.reddit.com/r/Futurology/s/bJrmtqH72t
+- 2025-06-19 — 📖 **Reddit:** https://www.reddit.com/r/PromptEngineering/s/GbUpWDLudP
+- 2025-06-21 — 🎥 **Video:** https://youtube.com/playlist?list=PLpQ7t1Szier-5RPUpMvj2eGmJioXUirXh&si=L0jUWbsHsA4kdFe_
+- 2025-06-21 — 📖 **Reddit:** https://www.reddit.com/r/homeassistant/s/dG5YbYfa42
+- 2025-06-21 — 📖 **Reddit:** https://www.reddit.com/r/homelab/s/BSr8ltMFSU
+- 2025-06-24 — https://setupmc.com/java-server/
+- 2025-06-25 — 📖 **Reddit:** https://www.reddit.com/r/PromptEngineering/s/sRZqrohsBT
+- 2025-06-26 — 📖 **Reddit:** https://www.reddit.com/r/Wordpress/s/CcT6WJNgiD
+- 2025-06-29 — https://soundswitch.aaflalo.me/
+- 2025-06-30 — 📖 **Reddit:** https://www.reddit.com/r/ObsidianMD/s/PIfsuVqvlL
+- 2025-07-03 — 📖 **Reddit:** https://www.reddit.com/r/homeassistant/s/7PTFUpmsSh
+- 2025-07-06 — 🛠️ **GitHub:** https://github.com/tikel1/HA-isometric-animated-picture-card
+- 2025-07-17 — 📖 **Reddit:** https://www.reddit.com/r/selfhosted/s/4g40niovnD
+- 2025-07-19 — 📖 **Reddit:** https://www.reddit.com/r/Blogging/s/nKgZlQYVAj
+- 2025-07-23 — https://www.nrc.nl/nieuws/2025/06/16/is-het-erg-dat-ik-geen-ambitie-heb-a4897020
+- 2025-07-29 — https://chatgpt.com/g/g-6887932a58dc81919c58c3f763224f4c-obsidian-notes
+- 2025-07-30 — 📖 **Reddit:** https://www.reddit.com/r/selfhosted/s/9dpy9QRyZm
+- 2025-08-25 — https://www.bol.com/nl/nl/f/dungeon-crawler-carl/9300000176600643/
+- 2025-09-14 — https://stats.uptimerobot.com/rujjkCKBBM
+- 2025-09-17 — 🎥 **Video:** https://youtube.com/shorts/g2I5SaGTn4w?si=e-q7Qfath-EZRH_w
+- 2025-09-17 — 🛠️ **GitHub:** https://github.com/enescingoz/awesome-n8n-templates
+- 2025-10-04 — 🎥 **Instagram:** https://www.instagram.com/reel/DOB1Y2OjcEc/?igsh=NDZlMjQ5MzNqczIy
+- 2025-10-08 — 🎥 **Instagram:** https://www.instagram.com/reel/DOsqOMbjhJz/?igsh=MW4wemludGtmeWF3MA==
+- 2025-10-08 — 🎥 **Instagram:** https://www.instagram.com/reel/DPVKBU4le-N/?igsh=endudG90ZHB2b2Nw
+- 2025-10-09 — [How to Run Docker on Proxmox the Right Way](https://share.google/pSgUMb1oTE0quKOud)
+- 2025-10-10 — https://dokploy.com/
+- 2025-10-19 — 🎥 **Instagram:** https://www.instagram.com/reel/DPgoOk_j5Xw/?igsh=YXphbG02ZmVzbHR2
+- 2025-10-28 — https://n8n.io/workflows/9660-host-your-own-jwt-authentication-system-with-data-tables-and-token-management/
+- 2025-10-31 — 🎥 **Instagram:** https://www.instagram.com/reel/DNuhpHT2iV_/?igsh=MWtsM3puM25mMmdkbA==
+- 2025-10-31 — https://www.geeky-gadgets.com/n8n-home-assistant-automation/
+- 2025-11-01 — [LogForge - Must-Have Self-Hosted Docker Dashboard](https://share.google/UeQoJBJBuPEKE98WY)
+- 2025-11-02 — 🎥 **Video:** https://youtu.be/nyH0nYhMW9M?si=Pz59L6OnJvg1KVGl
+- 2025-11-10 — [This useless keyboard key became one of my favorites](https://share.google/Whiv0mAMtYYjizBTJ)
+- 2025-11-14 — [Check je hack | politie.nl](https://share.google/4HFmgrLBIVmyZppwh)
+- 2025-11-16 — [10 Best Terminal Tools for Home Labs in 2025](https://share.google/eavTM4hxvy9mafPyi)
+- 2025-11-17 — [Docker app for Plex and Jellyfin self-hosters](https://share.google/f9qQo6ksbuPaV6qI2)
+- 2025-11-21 — [Gemini vs ChatGPT vs Claude coding test | TechRadar](https://share.google/2MTcRWykC1q7NNtBo)
+- 2025-12-05 — 🎥 **Instagram:** https://www.instagram.com/reel/DQ2e8G9EuRB/?igsh=emxrbzQwNTU4bXB1
+- 2025-12-24 — [Critical n8n Flaw CVSS 9.9](https://share.google/x2vkzqFwcZ1mHGBZV)
+- 2025-12-24 — https://techpulse.be/nieuws/492895/ssds-plots-tot-45-sneller-dankzij-interessante-windows-update/
+- 2025-12-25 — https://www.makeuseof.com/atlas-lightweight-windows-mod-is-faster-than-linux/
+- 2025-12-26 — 🎥 **Video:** https://youtu.be/5vYz37AqSO4?si=YJwo5rBtqz3__EaU
+- 2025-12-27 — 🎥 **Video:** https://youtube.com/shorts/fMTW8knS7iw?si=Y0qXMCMGZw_jnDNT
+- 2025-12-28 — 🛠️ **GitHub:** https://github.com/anthropics/prompt-eng-interactive-tutorial
+- 2026-01-10 — 🎥 **Instagram:** https://www.instagram.com/reel/DQ2R7vJkuhK/?igsh=Nmpmdm13ZnlkZjNs
+- 2026-01-11 — 🎥 **Instagram:** https://www.instagram.com/reel/DRAgI_Zj8v5/?igsh=am1kdDUweXl4NGlv
+- 2026-01-15 — 🎥 **Video:** http://youtube.com/post/UgkxZL-Ai8bBEJrP4tLl0npFbnxL9wrO8oNr?si=evYNluZSCtafqlqx
+- 2026-01-16 — 🎥 **Instagram:** https://www.instagram.com/reel/DTgHKF5Elfb/?igsh=MWpkcGw3N2szMHMz
+- 2026-01-17 — 🛠️ **GitHub:** https://github.com/Meliox/PVE-mods
+- 2026-01-17 — 🎥 **Instagram:** https://www.instagram.com/reel/DSyyLV0D3cJ/?igsh=cmUxbGs5YmQycnh4
+- 2026-01-18 — 🎥 **Video:** https://youtube.com/shorts/Zy6jDYYcH7I?si=dqy1pc53sCUoMbac
+- 2026-01-18 — 🎥 **Video:** https://youtu.be/-35JXpiQ3EA?si=XFfAfR77kyXNr5iJ
+- 2026-01-24 — 🎥 **Instagram:** https://www.instagram.com/reel/DR-1u2_AZ4e/?igsh=aDY4Nmt5bDFhaTR4
+- 2026-01-24 — 🎥 **Instagram:** https://www.instagram.com/reel/DTnnMtJESXh/?igsh=MTN1eDA5NXVtazFiag==
+- 2026-01-25 — 🎥 **Instagram:** https://www.instagram.com/reel/DTngeaEDCwd/?igsh=MzVwZWlrMmhvaDNz
+- 2026-01-30 — https://www.makeuseof.com/powertoys-delivered-windows-search-upgrade/
+- 2026-01-31 — https://culturehustle.com/products/yellow-lit-the-worlds-glowiest-glow-pigment-100-pure-lit-powder-in-blue-by-stuart-semple
+- 2026-02-01 — 🎥 **Instagram:** https://www.instagram.com/reel/DTfiLOTDbq1/?igsh=Nm9ja24waGF0MHRk
+- 2026-02-01 — 🎥 **Instagram:** https://www.instagram.com/reel/DRASslKCHJx/?igsh=MWxuYjFvMjFvdnFlbw==
+- 2026-02-02 — 🎥 **Video:** https://youtube.com/shorts/cn-vsUazsVY?si=zxsB5qPYmJ-VBPIZ
+- 2026-02-06 — 🎥 **Instagram:** https://www.instagram.com/p/DUDvux9EbNZ/?img_index=6&igsh=c2VpNW83Zmp2aXhl
+- 2026-02-06 — 🎥 **Instagram:** https://www.instagram.com/reel/DQ6WHxSjVGb/?igsh=ZHA2dGU2eXQ1YnZi
+- 2026-02-07 — 🎥 **Instagram:** https://www.instagram.com/reel/DUYFNz4FYMR/?igsh=eWRrcDZpcDRiY3Zl
+- 2026-02-07 — 🎥 **Instagram:** https://www.instagram.com/reel/DQ9I92mDK_M/?igsh=dmo2aGtwZ2VheHRm
+- 2026-02-07 — 🎥 **Instagram:** https://www.instagram.com/reel/DT55QrNldCk/?igsh=NWVnaDZiem45b2Jz
+- 2026-02-07 — 🎥 **Instagram:** https://www.instagram.com/reel/DSL73z8jGod/?igsh=cXl5NXFkMHVtdHRu
+- 2026-02-08 — https://www.xda-developers.com/claude-code-inside-obsidian-and-it-was-eye-opening/
+- 2026-02-16 — 🎥 **Instagram:** https://www.instagram.com/p/DUTx9Q1Ehtv/?img_index=9&igsh=ZjNuc2w0cDdkcmx2
+- 2026-02-16 — 🎥 **Instagram:** https://www.instagram.com/p/DUymAoniGjA/?img_index=3&igsh=bDJuOXN1MW5jdDF5
+- 2026-02-17 — https://machinelearningmastery.com/top-7-small-language-models-you-can-run-on-a-laptop/
+- 2026-02-21 — 🎥 **Instagram:** https://www.instagram.com/reel/DUyZ6sREfzZ/?igsh=cTd4NTEwNmI2NHp5
+- 2026-03-11 — https://www.printables.com/model/379643-native-instruments-maschine-mk3-23deg-stand
+- 2026-03-11 — https://www.thingiverse.com/thing:5840885
+- 2026-03-11 — https://makerworld.com/en/models/964065-macbook-pro-14-16-vertical-stand?from=search#profileId-934263
+- 2026-03-12 — 🎥 **Instagram:** https://www.instagram.com/reel/DTS_TauFN7H/?igsh=MTBpamY2aGRicGdkNQ==
+- 2026-03-15 — https://store.steampowered.com/app/241240/Contraption_Maker/
+- 2026-03-19 — 🎥 **Instagram:** https://www.instagram.com/p/DVrVKiwjQqY/?img_index=3&igsh=dXQwZXJtbmlxaWUz
+- 2026-03-19 — https://www.makeuseof.com/obsidian-local-llm-integration/
+- 2026-03-20 — 🎥 **Instagram:** https://www.instagram.com/reel/DWCqgMOjwEg/?igsh=MTlxODhveGZobXpteQ==
+- 2026-03-21 — 🎥 **Instagram:** https://www.instagram.com/reel/DTZKnjKjKGD/?igsh=MWg3cXQwemF5aGprdw==
+- 2026-03-22 — 🎥 **Instagram:** https://www.instagram.com/reel/DV-2YEmkVkP/?igsh=MTZ4bmUwZ3E1MWth
+- 2026-03-24 — 🎥 **Instagram:** https://www.instagram.com/reel/DVmHYAkEVeq/?igsh=MTBudnlyMTd5NnpzdA==
+- 2026-04-02 — 📖 **Reddit:** https://www.reddit.com/r/Wordpress/s/HEAjtUBRJD
+- 2026-04-02 — 🎥 **Instagram:** https://www.instagram.com/p/DWXFvank2gL/?img_index=6&igsh=MTJidGJodHQybWVmMQ==
+- 2026-04-04 — 🎥 **Instagram:** https://www.instagram.com/reel/DWepN4milbf/?igsh=MW8zbm9yd2w5aWZzYw==
+- 2026-04-06 — [Wandelen in Friesland: 3x prachtige korte routes](https://share.google/PBSWeVrXntks2GM6y)
+- 2026-04-06 — 🎥 **Instagram:** https://www.instagram.com/reel/DVoLKhWjYHX/?igsh=YTlrYmx1aWI5YzYw
+- 2026-04-07 — 🎥 **Instagram:** https://www.instagram.com/p/DWUCGzxFV8S/?img_index=9&igsh=MWZ4N2x0d2c1MmRuZw==
+- 2026-04-07 — 🎥 **Instagram:** https://www.instagram.com/reel/DUs__i-DkB8/?igsh=ZmFpMTBmNnJpZHds
+- 2026-04-08 — 🎥 **Instagram:** https://www.instagram.com/p/DWTraPsjNR5/?img_index=13&igsh=emY1MG1vazlibm94
+- 2026-04-08 — 🎥 **Instagram:** https://www.instagram.com/reel/DV_S7hBAPAg/?igsh=MW0wc2Y0bXN6Y2x0Zg==
+- 2026-04-09 — 🎥 **Instagram:** https://www.instagram.com/p/DW3q_ofjkwX/?img_index=5&igsh=bXkxNW4zcnkyMmFn
+- 2026-04-09 — 🎥 **Instagram:** https://www.instagram.com/reel/DW1YANyDLQz/?igsh=azd2ZWZsMHUwODB1
+- 2026-04-10 — 🎥 **Instagram:** https://www.instagram.com/p/DWY4EgDEeeB/?img_index=4&igsh=MTY2MnN0bTR2MzNuZw==
+- 2026-04-10 — 🎥 **Instagram:** https://www.instagram.com/reel/DVoQ_nsDTwb/?igsh=d252eWhkamUzYzQ2
+- 2026-04-10 — 🎥 **Instagram:** https://www.instagram.com/reel/DVZH9gUj-1e/?igsh=MWg4bTZ1amF1aDA1cg==
+- 2026-04-10 — 🎥 **Instagram:** https://www.instagram.com/p/DWXY-nBEy8o/?img_index=3&igsh=MWFmM2t0NmxiaGlxbw==
+- 2026-04-10 — 🎥 **Instagram:** https://www.instagram.com/reel/DWjkNBtjBKX/?igsh=MXBwd2pzZ2o4dnpqdQ==
+- 2026-04-11 — 🎥 **Instagram:** https://www.instagram.com/reel/DWHTEBsimME/?igsh=emxydnQ3YzE0NDdt
+- 2026-04-11 — 🎥 **Instagram:** https://www.instagram.com/reel/DWyzOVmCdAw/?igsh=MTV2Mnh5Y3VkeDZpdQ==
+- 2026-04-11 — 🎥 **Instagram:** https://www.instagram.com/reel/DW7mpXxDVWP/?igsh=MWc3YTNsaTV1czh2cQ==
+- 2026-04-12 — 🎥 **Instagram:** https://www.instagram.com/reel/DWl53ZkklgF/?igsh=bXJoNHhuYWE1ZWR5
+- 2026-04-13 — 🎥 **Instagram:** https://www.instagram.com/reel/DWLqU91kRLd/?igsh=MW1kaHRxenl5cjljZg==
+- 2026-04-13 — 🎥 **Instagram:** https://www.instagram.com/reel/DU0pStlDM1v/?igsh=YWJ4cnJsbG5semZl
+- 2026-04-13 — 🎥 **Instagram:** https://www.instagram.com/reel/DWr5t4yjovJ/?igsh=MTU3Mzh2OGt5eDlqMw==
+- 2026-04-13 — 🎥 **Instagram:** https://www.instagram.com/reel/DVGHA2ekrwK/?igsh=aG80MG5yaDlnY2c4
+- 2026-04-13 — 🎥 **Instagram:** https://www.instagram.com/reel/DVUPdnUEz_x/?igsh=MWg2Zmw0cXNxYWYzMw==
+- 2026-04-13 — https://www.music-assistant.io/
+- 2026-04-13 — 🛠️ **GitHub:** https://github.com/spotbye/SpotiFLAC
+- 2026-04-13 — 🛠️ **GitHub:** https://github.com/jdrowell/jdresolve
+- 2026-04-13 — 🎥 **Instagram:** https://www.instagram.com/reel/DVhLX2yElvI/?igsh=aDR3NXlxb244OGFu
+- 2026-04-14 — 🎥 **Instagram:** https://www.instagram.com/p/DWhAWEfFpY2/?img_index=2&igsh=MTR6eDRrdjhmbWFudA==
+- 2026-04-14 — 🎥 **Instagram:** https://www.instagram.com/p/DWywY8ekZdA/?img_index=1&igsh=eXlyZnFmcjY0Nm85
+- 2026-04-15 — 🎥 **Instagram:** https://www.instagram.com/p/DWhDaCOk0-M/?img_index=3&igsh=MXU5OXM1ZzJhNXBvYw==
 
 ---
 
