@@ -24,6 +24,8 @@ created: 2026-04-11
 
 <!-- inbox -->
 
+- 2026-04-15 — 💡 **Idee:** testerdietest
+
 - 2026-04-11 — [Full-stack vibe coding in Google AI Studio](https://blog.google/innovation-and-ai/technology/developers-tools/full-stack-vibe-coding-google-ai-studio/) — interessant artikel over AI-assisted development
 
 ---
