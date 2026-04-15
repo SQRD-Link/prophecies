@@ -1,35 +1,25 @@
----
-title: "Inbox"
-tags: [inbox]
-created: 2026-04-11
----
-
-# 📥 Inbox
-
-> Dit is je centrale dump voor alles wat nog verwerkt moet worden — links, ideeën, notities, video's. Gooi het hier in, verwerk het later.
-> 
-> **Doel:** Wekelijks doorlopen. Elke entry verplaatsen naar de juiste plek, omzetten in een echte note, of verwijderen.
-
----
-
-## Hoe te gebruiken
-
-- Op mobiel: open deze note en plak links/ideeën onderaan
-- Via Telegram bot: stuur een bericht naar @sqrdidea_bot → verschijnt hier automatisch
-- Verwerk wekelijks: vrijdag of zondag, 10 minuten
-
----
-
-## 📌 Te verwerken
-
-<!-- Plak hier je dumps. Datum + bron is handig maar niet verplicht. -->
-
-- 2026-04-11 — [Full-stack vibe coding in Google AI Studio](https://blog.google/innovation-and-ai/technology/developers-tools/full-stack-vibe-coding-google-ai-studio/) — interessant artikel over AI-assisted development
+LS0tCnRpdGxlOiAiSW5ib3giCnRhZ3M6IFtpbmJveF0KY3JlYXRlZDogMjAy
+Ni0wNC0xMQotLS0KCiMg8J+TpSBJbmJveAoKPiBEaXQgaXMgamUgY2VudHJh
+bGUgZHVtcCB2b29yIGFsbGVzIHdhdCBub2cgdmVyd2Vya3QgbW9ldCB3b3Jk
+ZW4g4oCUIGxpbmtzLCBpZGVlw6tuLCBub3RpdGllcywgdmlkZW8ncy4gR29v
+aSBoZXQgaGllciBpbiwgdmVyd2VyayBoZXQgbGF0ZXIuCj4gCj4gKipEb2Vs
+OioqIFdla2VsaWprcyBkb29ybG9wZW4uIEVsa2UgZW50cnkgdmVycGxhYXRz
+ZW4gbmFhciBkZSBqdWlzdGUgcGxlaywgb216ZXR0ZW4gaW4gZWVuIGVjaHRl
+IG5vdGUsIG9mIHZlcndpamRlcmVuLgoKLS0tCgojIyBIb2UgdGUgZ2VicnVp
+a2VuCgotIE9wIG1vYmllbDogb3BlbiBkZXplIG5vdGUgZW4gcGxhayBsaW5r
+cy9pZGVlw6tuIG9uZGVyYWFuCi0gVmlhIFRlbGVncmFtIGJvdDogc3R1dXIg
+ZWVuIGJlcmljaHQgbmFhciBAc3FyZGlkZWFfYm90IOKGkiB2ZXJzY2hpam50
+IGhpZXIgYXV0b21hdGlzY2gKLSBWZXJ3ZXJrIHdla2VsaWprczogdnJpamRh
+ZyBvZiB6b25kYWcsIDEwIG1pbnV0ZW4KCi0tLQoKIyMg8J+TjCBUZSB2ZXJ3
+ZXJrZW4KCjwhLS0gUGxhayBoaWVyIGplIGR1bXBzLiBEYXR1bSArIGJyb24g
+aXMgaGFuZGlnIG1hYXIgbmlldCB2ZXJwbGljaHQuIC0tPgoKLSAyMDI2LTA0
+LTExIOKAlCBbRnVsbC1zdGFjayB2aWJlIGNvZGluZyBpbiBHb29nbGUgQUkg
+U3R1ZGlvXShodHRwczovL2Jsb2cuZ29vZ2xlL2lubm92YXRpb24tYW5kLWFp
+L3RlY2hub2xvZ3kvZGV2ZWxvcGVycy10b29scy9mdWxsLXN0YWNrLXZpYmUt
+Y29kaW5nLWdvb2dsZS1haS1zdHVkaW8vKSDigJQgaW50ZXJlc3NhbnQgYXJ0
+aWtlbCBvdmVyIEFJLWFzc2lzdGVkIGRldmVsb3BtZW50Ci0gMjAyNi0wNC0x
+NSDigJQg8J+SoSAqKklkZWU6KiogdGVzdAoKLS0tCgojIyDinIUgVmVyd2Vy
+a3QgYXJjaGllZgoKPCEtLSBWZXJwbGFhdHMgaGllciBuYWFydG9lIHdhdCBq
+ZSBhbCBoZWJ0IGFmZ2VoYW5kZWxkLCB6b2RhdCBqZSBrdW50IHppZW4gd2F0
+IGplIGhlYnQgZ2VkYWFuLiAtLT4KCg==
 - 2026-04-15 — 💡 **Idee:** test
-
----
-
-## ✅ Verwerkt archief
-
-<!-- Verplaats hier naartoe wat je al hebt afgehandeld, zodat je kunt zien wat je hebt gedaan. -->
-
