@@ -3,3 +3,7 @@ site/
 .DS_Store
 __pycache__/
 *.pyc
+
+# Privé en werk — niet publiceren op Zensical wiki
+prive/
+werk/

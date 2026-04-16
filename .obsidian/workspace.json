@@ -20,8 +20,37 @@
               "icon": "lucide-file",
               "title": "hardware"
             }
+          },
+          {
+            "id": "2af5f6bc8dcb6fd0",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "docs/inbox.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "inbox"
+            }
+          },
+          {
+            "id": "db44318e5704ebd9",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "conflict-files-obsidian-git.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "conflict-files-obsidian-git"
+            }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -184,37 +213,45 @@
       "bases:Create new base": false
     }
   },
-  "active": "93416af105fafe23",
+  "active": "db44318e5704ebd9",
   "lastOpenFiles": [
-    "homelab/homie-system-prompt.md",
-    "homelab/ansible-workflow.md",
-    "homelab/tailscale-setup.md",
-    "homelab/services.md",
-    "homelab/network.md",
-    "Untitled.md",
+    "docs/inbox.md",
+    "docs/Home/PARA/Resources/Self-Growth & Parenting.md",
+    "docs/Home/PARA/Archive/00 - Archive Overview.md",
+    "docs/Home/PARA/Archive",
+    "docs/Home/PARA/Areas/00 - Areas Overview.md",
+    "docs/Home/PARA/Areas",
+    "docs/Home/PARA/Projects/00 - Projects Overview.md",
+    "docs/Home/PARA/Projects",
+    "docs/Home/PARA/Resources/00 - Resources Overview.md",
+    "docs/Home/PARA/Resources/Career & Learning.md",
+    "docs/Home/PARA/Resources/Music & Creative.md",
+    "docs/Home/PARA/Resources/Home Automation.md",
+    "docs/Home/PARA/Resources/Obsidian & PKM.md",
+    "docs/Home/PARA/Resources/AI & Prompt Engineering.md",
+    "docs/Home/PARA/Resources/Homelab & Self-Hosting.md",
+    "docs/Home/PARA/Resources",
+    "docs/Home/PARA/00 - PARA Index.md",
+    "docs/Home/PARA",
+    "conflict-files-obsidian-git.md",
     "homelab/hardware.md",
-    "homelab/homelab-overview.md",
-    "homelab",
-    "docs/Test 2.md",
-    "docs/Local llms on Macs.md",
-    "docs/Markdown/markdown.md",
-    "docs/Markdown",
-    "docs/test.md",
-    "docs/antigravity/Agents.md",
-    "docs/antigravity",
-    "docs/docker installation guide for ubuntu.md",
-    "docs/Cloud GPU 's.md",
-    "docs/A Crash Course in DNS (Domain Name System).md",
-    "docs/Email Deliverability/Email Deliverability - Trainee Guide.md",
-    "docs/Email Deliverability/Email Deliverability - Teacher Deep Dive.md",
-    "docs/Email Deliverability/Email Deliverability - Research Sources.md",
-    "docs/Email Deliverability/Email Deliverability - Customer FAQ.md",
-    "docs/Email Deliverability",
-    "docs/untitled folder",
-    "docs/Email Deliverability - Trainee Guide.md",
-    "docs/Email Deliverability - Teacher Deep Dive.md",
-    "docs/Email Deliverability - Research Sources.md",
-    "docs/Email Deliverability - Customer FAQ.md",
-    "docs/index.md"
+    "vault-structuur.md",
+    "docs/mkdocs.yml",
+    "docs/meal planner/jAImie System Prompt.md",
+    "docs/meal planner/WEEKLY_MENU_SETUP_GUIDE.md",
+    "docs/meal planner/QUICK_REFERENCE.md",
+    "docs/meal planner",
+    "docs/kennis/DNS Crash Course.md",
+    "docs/kennis",
+    "docs/homelab/n8n/opdrachten/02-telegram-inbox-bot.md",
+    "docs/homelab/n8n/opdrachten/01-arr-stack-monitoring.md",
+    "docs/homelab/n8n/opdrachten",
+    "docs/homelab/n8n/Ottolenghi Recipe Slot Machine - Documentatie.md",
+    "docs/homelab/n8n/Ottolenghi Recipe Slot Machine - Build Log.md",
+    "docs/homelab/ai/Lokale LLMs op Mac met LM Studio.md",
+    "docs/homelab/ai/Cloud GPU Prijsvergelijking.md",
+    "docs/homelab/n8n",
+    "docs/Home/Knowledge Base/docs 1/Attachments/Pasted image 20231106212819.png",
+    "docs/Home/Knowledge Base/docs 1/Attachments/Pasted image 20231106212614.png"
   ]
 }
