@@ -15,6 +15,8 @@ created: 2026-04-11
 
 <!-- inbox -->
 
+- 2026-04-16 — 💡 **Idee:** https://www.instagram.com/reel/DWHYFaCCBgl/?igsh=aHdmZ3NsaHZ1bXBw
+
 - 2026-04-16 — 💡 **Idee:** 
 
 - 2026-04-11 — [Full-stack vibe coding in Google AI Studio](https://blog.google/innovation-and-ai/technology/developers-tools/full-stack-vibe-coding-google-ai-studio/)
