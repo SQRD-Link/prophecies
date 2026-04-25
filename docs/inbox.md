@@ -2,7 +2,7 @@
 title: "Inbox"
 tags: [inbox]
 created: 2026-04-11
-updated: 2026-04-16
+updated: 2026-04-25
 ---
 
 # 📥 Inbox
@@ -14,6 +14,22 @@ updated: 2026-04-16
 
 ## 📌 Te verwerken
 
+- 2026-04-25 — 💡 **Idee:** ai https://www.instagram.com/p/DWuvx5ilGyF/?img_index=2&igsh=MWtwZzUxYmxxNThx
+- 2026-04-24 — 💡 **Idee:** https://www.instagram.com/reel/DXZ19ljkXtL/?igsh=MXg2N3Z4cXo4cmgyaA==
+- 2026-04-23 — 💡 **Idee:** https://www.instagram.com/p/DW19TyrjRbL/?img_index=4&igsh=ajkycWlvdzV1NDM=
+- 2026-04-23 — 💡 **Idee:** Claude code https://www.instagram.com/p/DW1iNfJE_H-/?img_index=2&igsh=MWcxcW45YWE4eTloYQ==
+- 2026-04-22 — 💡 **Idee:** ai https://www.instagram.com/p/DXXswOIlaSH/?igsh=MWlnMWdiZXhtYm0wbw==
+- 2026-04-20 — 💡 **Idee:** learning https://www.instagram.com/reel/DWjEvoDB774/?igsh=c3g3Zmd0eWtkenpl
+- 2026-04-20 — 💡 **Idee:** parenting https://www.instagram.com/p/DXKu2yYklXL/?img_index=5&igsh=MTQydjNoODA5cHJndA==
+- 2026-04-20 — 💡 **Idee:** tutorials https://www.instagram.com/p/DWlFyM7GWx2/?img_index=2&igsh=Y3A1Y3o1YTg3ejdn
+- 2026-04-19 — 💡 **Idee:** knutsel https://www.instagram.com/reel/DT2av3Fj8u9/?igsh=MXdobm53OTNxemdnYw==
+- 2026-04-19 — 💡 **Idee:** https://www.instagram.com/reel/DVpg_0KDpuw/?igsh=OWFvZnN4eTJ5dmdm
+- 2026-04-19 — 💡 **Idee:** knutsel https://www.instagram.com/reel/DXQSsLKDK2a/?igsh=MXN1eWdtN3J0amkzOQ==
+- 2026-04-19 — 📄 **Artikel:** https://www.instagram.com/p/DXQrABAAeES/?igsh=NDhpYjljbjE3bHhq
+- 2026-04-18 — 💡 **Idee:** knutsel https://www.instagram.com/reel/DV_IGw8jVjs/?igsh=MXBid3BreTdmenB0dA==
+- 2026-04-18 — 💡 **Idee:** science experiment https://www.instagram.com/reel/DVoYxSUSkOG/?igsh=cDUweXo0a3IxdW5j
+- 2026-04-17 — 💡 **Idee:** science experiment https://www.instagram.com/reel/DUgClVtEnsG/?igsh=ZWhnc2EzeDNrengy
+- 2026-04-17 — 💡 **Idee:** science experiment https://www.instagram.com/reel/DVWADEeks9I/?igsh=MXExdzBzM2x5Mm1zcQ==
 - 2026-04-16 — 💡 **Idee:** https://www.instagram.com/reel/DWHYFaCCBgl/?igsh=aHdmZ3NsaHZ1bXBw
 - 2026-04-15 — 💡 **Idee:** test
 
