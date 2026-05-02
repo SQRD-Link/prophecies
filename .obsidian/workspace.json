@@ -34,23 +34,9 @@
               "icon": "lucide-file",
               "title": "inbox"
             }
-          },
-          {
-            "id": "db44318e5704ebd9",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "conflict-files-obsidian-git.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "conflict-files-obsidian-git"
-            }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -213,9 +199,14 @@
       "bases:Create new base": false
     }
   },
-  "active": "db44318e5704ebd9",
+  "active": "2af5f6bc8dcb6fd0",
   "lastOpenFiles": [
+    "docs/index.md",
     "docs/inbox.md",
+    "docs/Yamaha FZR600R 1995/Source pack summary.md",
+    "docs/kennis/DNS Crash Course.md",
+    "docs/Yamaha FZR600R 1995",
+    "conflict-files-obsidian-git.md",
     "docs/Home/PARA/Resources/Self-Growth & Parenting.md",
     "docs/Home/PARA/Archive/00 - Archive Overview.md",
     "docs/Home/PARA/Archive",
@@ -233,7 +224,6 @@
     "docs/Home/PARA/Resources",
     "docs/Home/PARA/00 - PARA Index.md",
     "docs/Home/PARA",
-    "conflict-files-obsidian-git.md",
     "homelab/hardware.md",
     "vault-structuur.md",
     "docs/mkdocs.yml",
@@ -241,16 +231,12 @@
     "docs/meal planner/WEEKLY_MENU_SETUP_GUIDE.md",
     "docs/meal planner/QUICK_REFERENCE.md",
     "docs/meal planner",
-    "docs/kennis/DNS Crash Course.md",
     "docs/kennis",
     "docs/homelab/n8n/opdrachten/02-telegram-inbox-bot.md",
     "docs/homelab/n8n/opdrachten/01-arr-stack-monitoring.md",
     "docs/homelab/n8n/opdrachten",
     "docs/homelab/n8n/Ottolenghi Recipe Slot Machine - Documentatie.md",
     "docs/homelab/n8n/Ottolenghi Recipe Slot Machine - Build Log.md",
-    "docs/homelab/ai/Lokale LLMs op Mac met LM Studio.md",
-    "docs/homelab/ai/Cloud GPU Prijsvergelijking.md",
-    "docs/homelab/n8n",
     "docs/Home/Knowledge Base/docs 1/Attachments/Pasted image 20231106212819.png",
     "docs/Home/Knowledge Base/docs 1/Attachments/Pasted image 20231106212614.png"
   ]

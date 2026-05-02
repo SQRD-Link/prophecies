@@ -13,6 +13,21 @@ updated: 2026-04-25
 ---
 
 ## 📌 Te verwerken
+- 2026-04-30 — 💡 **Idee:** [ai llm training](https://www.instagram.com/p/DXqHKprFD2D/?igsh=MTJoZmJrdzJ4NHVvbg==) (#tech)
+- 2026-04-29 — 💡 **Idee:** https://www.instagram.com/p/DXXmjlbDaVa/?img_index=3&igsh=dnZ6YXlkb3k2bm01 (#ouderschap)
+- 2026-04-28 — 💡 **Idee:** [ai family planner](https://www.instagram.com/p/DXnCur5Fbwu/?igsh=MWtybnhpMXEyM3I5) (#tech)
+- 2026-04-27 — 💡 **Idee:** https://www.instagram.com/p/DXknYsoFLsx/?img_index=10&igsh=bW9scTI3MnU2NTI= (#ouderschap)
+- 2026-04-27 — 💡 **Idee:** [ai oss tools](https://www.instagram.com/p/DXUmRczlDZG/?img_index=9&igsh=bzA4cXFkNjl3a3M=) (#tech)
+- 2026-04-26 — 💡 **Idee:** [ai Notebooklm](https://www.instagram.com/p/DXg_ncujreX/?img_index=2&igsh=Y3B2ZHZnaGRqZGJi) (#tech)
+- 2026-04-26 — 💡 **Idee:** [ai prompts](https://www.instagram.com/p/DXMre9XFNCh/?img_index=2&igsh=MXFkMzIwZGVrbmZrbQ==) (#tech)
+- 2026-04-26 — 💡 **Idee:** [ai prompts](https://www.instagram.com/p/DW6iO0ODntM/?img_index=4&igsh=ZnVpMnpqYzkxd3h2) (#tech)
+- 2026-04-26 — 💡 **Idee:** [ai security check prompt](https://www.instagram.com/p/DXkC_7DDR6W/?img_index=1&igsh=MTc0dnlxYmY0c28wMQ==) (#tech)
+- 2026-04-26 — 💡 **Idee:** https://www.instagram.com/p/DXji7iDDjdD/?igsh=MTBtMGNubjNjODJlZQ==
+- 2026-04-26 — 💡 **Idee:** [create custom fonts](https://www.instagram.com/reel/DWZG3AYiAZ9/?igsh=MWpibm4zeDVta2NxZQ==)
+- 2026-04-26 — 💡 **Idee:** https://www.instagram.com/reel/DW4O6PhlLFH/?igsh=dG0zcXcyMHQ2Z2h1 (#knutsel)
+- 2026-04-26 — 💡 **Idee:** https://www.instagram.com/reel/DXCDd6-Ar1v/?igsh=MTVka3o4NnZsczF3ZQ== (#knutsel)
+- 2026-04-26 — https://youtu.be/n4EVksU_EOs?is=0fUqdx59U0zZZYgd
+- 2026-04-26 — 💡 **Idee:** [taalcursus prompt](https://www.instagram.com/p/DXfNb1rlUj4/?img_index=5&igsh=Z2Z0YWMwMTA1MXI2) (#leren)
 
 - 2026-04-25 — 💡 **Idee:** ai https://www.instagram.com/p/DWuvx5ilGyF/?img_index=2&igsh=MWtwZzUxYmxxNThx
 - 2026-04-24 — 💡 **Idee:** https://www.instagram.com/reel/DXZ19ljkXtL/?igsh=MXg2N3Z4cXo4cmgyaA==
