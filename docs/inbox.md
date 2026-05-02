@@ -29,6 +29,8 @@ updated: 2026-04-25
 - 2026-04-26 — https://youtu.be/n4EVksU_EOs?is=0fUqdx59U0zZZYgd
 - 2026-04-26 — 💡 **Idee:** [taalcursus prompt](https://www.instagram.com/p/DXfNb1rlUj4/?img_index=5&igsh=Z2Z0YWMwMTA1MXI2) (#leren)
 
+- 2026-05-02 — 💡 **Idee:** test 7
+- 2026-05-02 — 💡 **Idee:** test 6
 - 2026-04-25 — 💡 **Idee:** ai https://www.instagram.com/p/DWuvx5ilGyF/?img_index=2&igsh=MWtwZzUxYmxxNThx
 - 2026-04-24 — 💡 **Idee:** https://www.instagram.com/reel/DXZ19ljkXtL/?igsh=MXg2N3Z4cXo4cmgyaA==
 - 2026-04-23 — 💡 **Idee:** https://www.instagram.com/p/DW19TyrjRbL/?img_index=4&igsh=ajkycWlvdzV1NDM=
