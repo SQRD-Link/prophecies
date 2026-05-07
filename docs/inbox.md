@@ -13,6 +13,8 @@ updated: 2026-04-25
 ---
 
 ## 📌 Te verwerken
+
+- 2026-05-07 — 💡 **Idee:** [second brain](https://www.howtogeek.com/claude-obsidian-the-cheat-code-for-building-a-second-brain/)
 - 2026-04-30 — 💡 **Idee:** [ai llm training](https://www.instagram.com/p/DXqHKprFD2D/?igsh=MTJoZmJrdzJ4NHVvbg==) (#tech)
 - 2026-04-29 — 💡 **Idee:** https://www.instagram.com/p/DXXmjlbDaVa/?img_index=3&igsh=dnZ6YXlkb3k2bm01 (#ouderschap)
 - 2026-04-28 — 💡 **Idee:** [ai family planner](https://www.instagram.com/p/DXnCur5Fbwu/?igsh=MWtybnhpMXEyM3I5) (#tech)
