@@ -29,14 +29,109 @@
               "state": {
                 "file": "docs/inbox.md",
                 "mode": "source",
+                "source": false,
+                "backlinks": false
+              },
+              "icon": "lucide-file",
+              "title": "inbox"
+            }
+          },
+          {
+            "id": "6750b15c464a2194",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "docs/inbox.md",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
               "title": "inbox"
             }
+          },
+          {
+            "id": "afaf8a52c9bb075b",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "claude code plugins.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "claude code plugins"
+            }
+          },
+          {
+            "id": "1ea88ab64aa00c51",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "MEGA PROMPT CHEST [PUBLIC].md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "MEGA PROMPT CHEST [PUBLIC]"
+            }
+          },
+          {
+            "id": "92741ddb979c3703",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "request feedback tool.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "request feedback tool"
+            }
+          },
+          {
+            "id": "643cf8af897ff18b",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "docs/kennis/DNS Crash Course.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "DNS Crash Course"
+            }
+          },
+          {
+            "id": "167cd5366df1aa8e",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Untitled.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Untitled"
+            }
           }
         ],
-        "currentTab": 1
+        "currentTab": 7
       }
     ],
     "direction": "vertical"
@@ -179,13 +274,23 @@
               "icon": "lucide-list",
               "title": "Outline of test"
             }
+          },
+          {
+            "id": "fe7ddbb832346007",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {},
+              "icon": "git-pull-request",
+              "title": "Source Control"
+            }
           }
-        ]
+        ],
+        "currentTab": 5
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -199,44 +304,45 @@
       "bases:Create new base": false
     }
   },
-  "active": "2af5f6bc8dcb6fd0",
+  "active": "4de5df9f540ec28e",
   "lastOpenFiles": [
-    "docs/index.md",
     "docs/inbox.md",
-    "docs/Yamaha FZR600R 1995/Source pack summary.md",
+    "Untitled.md",
     "docs/kennis/DNS Crash Course.md",
+    "send message to zd 1.md",
+    "request feedback tool.md",
+    "MEGA PROMPT CHEST [PUBLIC].md",
+    "cleanup code base prompt.md",
+    "docs/homelab/services/centuries/arcane.md",
+    "docs/homelab/services/centuries/odysseus.md",
+    "docs/homelab/services/centuries/adguard-sync.md",
+    "second brain memory.md",
+    "docs/homelab/services/centuries/index.md",
+    "docs/homelab/services/centuries/newt.md",
+    "docs/homelab/services/centuries/semaphore.md",
+    "docs/homelab/services/centuries/mealie.md",
+    "docs/homelab/services/centuries/netbox.md",
+    "docs/homelab/services/centuries/vaultwarden.md",
+    "docs/homelab/services/centuries/n8n.md",
+    "docs/homelab/services/centuries/arr_stack.md",
+    "docs/homelab/services/centuries/traefik.md",
+    "docs/homelab/services/centuries/openwebui.md",
+    "docs/homelab/services/centuries",
+    "docs/homelab/services",
+    "docs/homelab/ops-journal/_template.md",
+    "docs/homelab/ops-journal/2026-06-07 - Sparse Checkout Migration.md",
+    "docs/homelab/ops-journal",
+    "claude code plugins.md",
+    "docs/attachements/Pasted image 20260502133919.png",
+    "docs/attachements",
+    "docs/index.md",
+    "docs/Yamaha FZR600R 1995/Source pack summary.md",
     "docs/Yamaha FZR600R 1995",
-    "conflict-files-obsidian-git.md",
-    "docs/Home/PARA/Resources/Self-Growth & Parenting.md",
-    "docs/Home/PARA/Archive/00 - Archive Overview.md",
     "docs/Home/PARA/Archive",
-    "docs/Home/PARA/Areas/00 - Areas Overview.md",
     "docs/Home/PARA/Areas",
-    "docs/Home/PARA/Projects/00 - Projects Overview.md",
     "docs/Home/PARA/Projects",
-    "docs/Home/PARA/Resources/00 - Resources Overview.md",
-    "docs/Home/PARA/Resources/Career & Learning.md",
-    "docs/Home/PARA/Resources/Music & Creative.md",
-    "docs/Home/PARA/Resources/Home Automation.md",
-    "docs/Home/PARA/Resources/Obsidian & PKM.md",
-    "docs/Home/PARA/Resources/AI & Prompt Engineering.md",
-    "docs/Home/PARA/Resources/Homelab & Self-Hosting.md",
     "docs/Home/PARA/Resources",
-    "docs/Home/PARA/00 - PARA Index.md",
     "docs/Home/PARA",
-    "homelab/hardware.md",
-    "vault-structuur.md",
-    "docs/mkdocs.yml",
-    "docs/meal planner/jAImie System Prompt.md",
-    "docs/meal planner/WEEKLY_MENU_SETUP_GUIDE.md",
-    "docs/meal planner/QUICK_REFERENCE.md",
-    "docs/meal planner",
-    "docs/kennis",
-    "docs/homelab/n8n/opdrachten/02-telegram-inbox-bot.md",
-    "docs/homelab/n8n/opdrachten/01-arr-stack-monitoring.md",
-    "docs/homelab/n8n/opdrachten",
-    "docs/homelab/n8n/Ottolenghi Recipe Slot Machine - Documentatie.md",
-    "docs/homelab/n8n/Ottolenghi Recipe Slot Machine - Build Log.md",
     "docs/Home/Knowledge Base/docs 1/Attachments/Pasted image 20231106212819.png",
     "docs/Home/Knowledge Base/docs 1/Attachments/Pasted image 20231106212614.png"
   ]
