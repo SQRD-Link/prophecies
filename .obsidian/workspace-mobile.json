@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "docs/Mobile idea box.md",
+                "file": "Lieve Johanna ;).md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Mobile idea box"
+              "title": "Lieve Johanna ;)"
             }
           }
         ]
@@ -37,7 +37,9 @@
           "type": "file-explorer",
           "state": {
             "sortOrder": "alphabetical",
-            "autoReveal": false
+            "autoReveal": false,
+            "showSearch": false,
+            "searchQuery": ""
           },
           "icon": "lucide-folder-closed",
           "title": "Files"
@@ -112,6 +114,7 @@
         "state": {
           "type": "backlink",
           "state": {
+            "file": "Lieve Johanna ;).md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -168,33 +171,43 @@
   },
   "active": "ada731197fe75692",
   "lastOpenFiles": [
-    "docs/docker installation guide for ubuntu.md",
-    "docs/antigravity/Agents.md",
-    "docs/Local llms on Macs.md",
-    "docs/Email Deliverability/Email Deliverability - Trainee Guide.md",
-    "docs/Email Deliverability/Email Deliverability - Teacher Deep Dive.md",
-    "docs/Email Deliverability/Email Deliverability - Research Sources.md",
-    "docs/Email Deliverability/Email Deliverability - Customer FAQ.md",
-    "docs/Cloud GPU 's.md",
-    "docs/A Crash Course in DNS (Domain Name System).md",
-    "docs/Markdown/markdown.md",
-    "/docs/docker installation guide for ubuntu.md",
-    "/docs/antigravity/Agents.md",
-    "/docs/Local llms on Macs.md",
-    "/docs/Email Deliverability/Email Deliverability - Trainee Guide.md",
-    "/docs/Email Deliverability/Email Deliverability - Teacher Deep Dive.md",
-    "/docs/Email Deliverability/Email Deliverability - Research Sources.md",
-    "/docs/Email Deliverability/Email Deliverability - Customer FAQ.md",
-    "/docs/Cloud GPU 's.md",
-    "/docs/A Crash Course in DNS (Domain Name System).md",
-    "/docs/Markdown/markdown.md",
-    "docs/antigravity",
-    "docs/Markdown",
-    "docs/Email Deliverability",
-    "/docs/antigravity",
-    "/docs/Markdown",
-    "/docs/Email Deliverability",
+    "docs/inbox.md",
+    "Lieve Johanna ;).md",
+    "/docs/inbox.md",
     "/docs",
-    "docs/Mobile idea box.md"
+    "homelab/tailscale-setup.md",
+    "homelab/services.md",
+    "homelab/network.md",
+    "homelab/homie-system-prompt.md",
+    "homelab/homelab-overview.md",
+    "homelab/hardware.md",
+    "homelab/ansible-workflow.md",
+    "docs/Home/PARA/Resources/Self-Growth & Parenting.md",
+    "docs/Home/PARA/Resources/Obsidian & PKM.md",
+    "docs/Home/PARA/Resources/Music & Creative.md",
+    "docs/Home/PARA/Resources/Homelab & Self-Hosting.md",
+    "docs/Home/PARA/Resources/Home Automation.md",
+    "docs/Home/PARA/Resources/Career & Learning.md",
+    "docs/Home/PARA/Resources/AI & Prompt Engineering.md",
+    "docs/Home/PARA/Resources/00 - Resources Overview.md",
+    "docs/Home/PARA/Projects/00 - Projects Overview.md",
+    "docs/Home/PARA/Areas/00 - Areas Overview.md",
+    "docs/Home/PARA/Archive/00 - Archive Overview.md",
+    "docs/Home/PARA/00 - PARA Index.md",
+    "/homelab/tailscale-setup.md",
+    "/homelab/services.md",
+    "/homelab/network.md",
+    "/homelab/homie-system-prompt.md",
+    "homelab",
+    "docs/Home/PARA/Resources",
+    "docs/Home/PARA/Projects",
+    "docs/Home/PARA/Areas",
+    "docs/Home/PARA/Archive",
+    "/homelab",
+    "/docs/Home/PARA/Resources",
+    "/docs/Home/PARA/Projects",
+    "/docs/Home/PARA/Areas",
+    "docs/Home/Knowledge Base/docs 1/Attachments/Pasted image 20231106212819.png",
+    "docs/Home/Knowledge Base/docs 1/Attachments/Pasted image 20231106212614.png"
   ]
 }
