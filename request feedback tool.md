@@ -1,0 +1,1 @@
+Use this tool If the client indicates the response has been useful or If you detect the conversation has come to a natural ending, call this tool to present the client with feedback question. 
