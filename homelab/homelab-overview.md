@@ -1,44 +1,76 @@
 ---
 title: Homelab Overview
-tags: [homelab, infrastructure, index]
+tags:
+  - homelab
+  - infrastructure
+  - index
 created: 2026-03-30
-updated: 2026-03-30
+updated: 2026-09-26
 ---
-
+---
 # Homelab Overview
 
-Personal homelab running self-hosted services, automation, and media. Built around two physical servers, a Proxmox hypervisor, and a growing collection of Docker containers.
+This is Richard's personal homelab, running self-hosted services, automation and media. It is built around two physical servers (a TrueNAS box and a Proxmox hypervisor), a growing collection of Docker containers, and a static home IP as the public edge. The old Hetzner VPS was decommissioned for cost on 2026-09-05, permanently.
+
+VLAN segmentation is complete (2026-09-25), and the Servers → Management boundary is hardened. See [[network]] for the detail and `claude/network-reference.md` for the compact current state. The network is also drawn as a live map at `mappa.sqrd.link` ("Pianta della Rete").
 
 ## Domains
 
-| Domain | Purpose |
+|Domain|Purpose|
 |---|---|
-| `sqrd.link` | Internal / local services |
-| `prtsr.nl` | Public-facing services |
+|`sqrd.link`|Internal / local services|
+|`prtsr.nl`|Public-facing services|
 
-DNS is handled by AdGuard Home with a wildcard `*.sqrd.link → 10.10.100.253` (pangolin) so new services are reachable immediately after adding a route in Pangolin.
+- **Internal DNS** is handled by AdGuard Home, with a wildcard `*.sqrd.link → 10.10.100.252` (Pangolin). A new internal service is reachable as soon as it has a Pangolin route.
+- **Two exceptions:** `grimoire.sqrd.link` and `nastradamus.sqrd.link` bypass Pangolin via AdGuard rewrites and go to centuries' Traefik instead.
+- **Public DNS** (`prtsr.nl`) is in Cloudflare, DNS-only. It is not proxied, because Cloudflare's proxy is HTTP(S)-only and can't forward raw TCP like Minecraft.
 
 ## Network
 
-- **Subnet:** `10.10.100.0/24`
-- **Switch/AP:** TP-Link Omada
-- **DNS primary:** AdGuard Home 1 — `10.10.100.1` (LXC on Proxmox)
-- **DNS secondary:** AdGuard Home 2 — `10.10.100.2` (Docker on nastradamus, synced via adguardhome-sync)
-- **Reverse proxy (internal):** Pangolin — `10.10.100.253` (`pangolin.sqrd.link`)
-- **Reverse proxy (public):** Pangolin on Hetzner VPS — `proxy.prtsr.nl`, tunnels to internal pangolin
+- **VLANs:**
+    - Management 10: `10.10.10.0/24`
+    - Servers 100: `10.10.100.0/24`
+    - IoT 20
+    - Trusted 30
+    - Guest 40
+    - Leo 50
+- **Gateway:** `la-porta`, a TP-Link ER605 v2.0 managed by Omada. It is `.254` in every VLAN, was called `fw` until 2026-09-26, and enforces the gateway ACL.
+- **Switch:** `switch`, a TP-Link TL-SG2008P v1.0, at `10.10.10.201`.
+- **APs:**
+    - `piano-terra`: EAP245, downstairs, `10.10.10.202` (was `beneden`)
+    - `piano-nobile`: EAP225, upstairs, `10.10.10.203` (was `boven`)
+- **DNS primary:** AdGuard Home 1 at `10.10.100.1`, an LXC on grimoire.
+- **DNS secondary:** AdGuard Home 2 at `10.10.100.2`, Docker on nastradamus, synced via adguardhome-sync.
+- **Reverse proxy:** Pangolin at `10.10.100.252`. It is both the internal edge and the public edge, via router port forwarding over the static home IP.
+
+Naming: hosts follow the Nostradamus theme, while network infrastructure uses Italian palazzo names that match the map. Always rename in the owning system (Omada for network gear, Proxmox for guests), never only in NetBox. See the Naming section in `claude/network-reference.md`.
 
 ## Servers
 
-| Host | IP | Role | Hardware |
-|---|---|---|---|
-| `nastradamus.sqrd.link` | `10.10.100.12` | NAS (TrueNAS Scale) | i5-10500, 16 GB RAM, 12 TB |
-| `prox.sqrd.link` | `10.10.100.8` | Hypervisor (Proxmox) | i5-10500T, 32 GB RAM, 1 TB NVMe |
-| Hetzner VPS | — | Public edge (Pangolin) | Cloud |
+|Host|Management IP|Other IP|Role|Hardware|
+|---|---|---|---|---|
+|`nastradamus`|`10.10.10.20`|`10.10.100.12` (legacy, Docker macvlan apps)|NAS (TrueNAS Scale), also runs pbs as a VM|i5-10500, 16 GB RAM, 12 TB|
+|`grimoire`|`10.10.10.10`|none|Hypervisor (Proxmox), standalone node, renamed from `prox` on 2026-09-26|i5-10500T, 32 GB RAM, 1 TB NVMe|
 
-## Related Notes
+Proxmox Backup Server (`pbs`) runs on the Management VLAN at `10.10.10.30`, as a VM hosted on TrueNAS. See [[hardware]] and [[network]].
 
-- [[hardware]] — detailed hardware specs
-- [[network]] — VLAN plan, Omada config
-- [[services]] — full service inventory
-- [[tailscale-setup]] — remote access setup
-- [[ansible-workflow]] — IaC with Netbox + Semaphore
+~~Hetzner VPS: public edge (Pangolin)~~ was decommissioned on 2026-09-05, permanently.
+
+## MCP servers connected
+
+- **Omada MCP:** live queries against the Omada controller (devices, clients, traffic, PoE, firmware).
+- **Home Assistant MCP:** controls and queries hassanova (`10.10.100.55`).
+- **NetBox MCP:** read-only. Writes go through n8n.
+- **Proxmox MCP:** reaches grimoire.
+- **homie-mcp:** n8n workflow and execution management.
+
+## Related notes
+
+- [[hardware]]: detailed hardware specs.
+- [[network]]: VLAN plan, Omada config, ACL hardening, device/client snapshot.
+- [[services]]: full service inventory.
+- [[tailscale-setup]]: remote access.
+- [[ansible-workflow]]: IaC with NetBox + Semaphore.
+- `claude/network-reference.md`: compact live reference, including naming.
+- `claude/mappa-network-map.md`: the network map project and its NetBox sync.
+- The vault note `docs/homelab/Proxmox Rename - prox naar grimoire.md`: the rename procedure and its lessons.

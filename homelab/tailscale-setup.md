@@ -2,118 +2,47 @@
 title: Tailscale Setup
 tags: [homelab, tailscale, networking, remote-access]
 created: 2026-03-30
-updated: 2026-03-30
+updated: 2026-09-27
+source: "[[Network Reference]] (current topology updated 2026-09-26)"
 ---
 
-# Tailscale Setup
+# Tailscale Setup and current topology
 
-Tailscale provides zero-config remote access to the homelab without opening any inbound ports. It runs as a subnet router on `docker.sqrd.link`, exposing the full `10.10.100.0/24` network.
+> The original Docker-on-centuries guide below is obsolete. Current Tailscale runs as native `tailscaled` on the Ubuntu LXC **teelskeel** (`10.10.100.13`). Do not deploy another subnet router from this old recipe without first checking the live Tailscale admin console and host configuration.
 
-When VLAN segmentation is in place, add additional subnet routes for each new VLAN.
+## Current documented configuration
 
-## Architecture
+- **Subnet router:** `teelskeel`, an LXC on Proxmox `grimoire`.
+- **Implementation:** native Ubuntu `tailscaled`, not Docker.
+- **Advertised routes:** Servers `10.10.100.0/24` and Management `10.10.10.0/24`.
+- **Role:** remote access to those homelab subnets; also configured as an exit node.
+- **Intentionally not advertised:** IoT (`10.10.20.0/24`), Trusted (`10.10.30.0/24`), Guest (`10.10.40.0/24`) and Leo (`10.10.50.0/24`).
+- **Firewall:** inter-VLAN traffic, including Tailscale-forwarded traffic, is subject to `la-porta`'s first-match-wins gateway ACL. A subnet route alone does not imply the ACL permits access.
 
-```
-[remote device]
-    ↓ Tailscale mesh VPN
-[Tailscale subnet router — Docker on docker.sqrd.link]
-    ↓ subnet routing
-[10.10.100.0/24 — full homelab]
-```
+See [[Network Reference]] for the VLANs, documented ACL exceptions and names/IPs. Tailscale and the work Twingate client are separate systems.
 
-No need to install Tailscale on every host. One subnet router exposes everything.
+## Read-only verification
 
-## Prerequisites
-
-- Tailscale account (free Starter plan: 1 user, 100 devices)
-- Docker and Docker Compose on `docker.sqrd.link`
-- Linux kernel with TUN module enabled (check: `modinfo tun`)
-
-## Setup
-
-### 1. Create a Tailscale auth key
-
-1. Go to [tailscale.com/admin](https://tailscale.com/admin) → Settings → Keys
-2. Generate an **Auth Key** — enable "Reusable" and "Pre-authorized"
-3. Copy the key
-
-### 2. Enable IP forwarding on the Docker host
+Use these checks before troubleshooting or making changes; they inspect local status without editing configuration:
 
 ```bash
-echo 'net.ipv4.ip_forward = 1' | sudo tee -a /etc/sysctl.d/99-tailscale.conf
-echo 'net.ipv6.conf.all.forwarding = 1' | sudo tee -a /etc/sysctl.d/99-tailscale.conf
-sudo sysctl -p /etc/sysctl.d/99-tailscale.conf
+# On teelskeel
+tailscale status
+ip -brief address
+ip route
+
+# From a remote Tailscale-connected device, test Management by literal IP
+curl -kI --connect-timeout 5 https://10.10.10.10:8006
+curl -kI --connect-timeout 5 https://10.10.10.20:4443
 ```
 
-### 3. Docker Compose
+The hostname rewrites `grimoire.sqrd.link` and `nastradamus.sqrd.link` resolve to centuries (`10.10.100.75`), not to the Management interfaces. Use raw IPs when verifying the Management route. Check the actual service port and certificate behavior before interpreting an HTTP/TLS result.
 
-Add to your `docker.sqrd.link` compose stack (in `SQRD-Link/codex`):
+## When changing routes or ACLs
 
-```yaml
-services:
-  tailscale:
-    image: tailscale/tailscale:latest
-    container_name: tailscale
-    hostname: docker-homelab
-    environment:
-      - TS_AUTHKEY=${TS_AUTHKEY}
-      - TS_STATE_DIR=/var/lib/tailscale
-      - TS_ROUTES=10.10.100.0/24
-      - TS_EXTRA_ARGS=--advertise-exit-node
-    volumes:
-      - tailscale-data:/var/lib/tailscale
-      - /dev/net/tun:/dev/net/tun
-    cap_add:
-      - NET_ADMIN
-      - SYS_MODULE
-    restart: unless-stopped
+1. Confirm the live advertised routes and route approval in the Tailscale admin console.
+2. Identify source, destination, protocol and port; trace both request and return paths through `la-porta` ACLs.
+3. Do not advertise additional VLANs or loosen broad inter-VLAN policy without explicit need and approval.
+4. After an authorized change, re-run the same connectivity test and verify the effective route from the client.
 
-volumes:
-  tailscale-data:
-```
-
-Add `TS_AUTHKEY` to your `.env` file:
-
-```env
-TS_AUTHKEY=tskey-auth-xxxxx
-```
-
-### 4. Approve the subnet route
-
-After the container starts:
-
-1. Go to [tailscale.com/admin/machines](https://tailscale.com/admin/machines)
-2. Find `docker-homelab`
-3. Click the three-dot menu → Edit route settings
-4. Enable `10.10.100.0/24`
-5. Optionally enable it as an exit node
-
-### 5. Enable MagicDNS (optional but recommended)
-
-In the Tailscale admin panel → DNS → enable MagicDNS. Your homelab machines will be reachable via `nastradamus.yourtailnet.ts.net` etc.
-
-## Connecting
-
-Install the Tailscale client on your devices. Sign in with the same account. Your homelab subnet will be accessible automatically — no VPN config needed.
-
-```bash
-# Verify routing on a connected device
-ping 10.10.100.8       # prox
-curl http://10.10.100.253  # pangolin
-```
-
-## Future: VLAN subnets
-
-When VLANs are set up, add routes for each segment:
-
-```yaml
-- TS_ROUTES=10.10.100.0/24,10.10.10.0/24,10.10.20.0/24,10.10.30.0/24
-```
-
-Then approve each new route in the Tailscale admin panel.
-
-## Notes
-
-- Tailscale and Twingate (work) are separate clients — they don't conflict
-- The `teelskeel` LXC (`.13`) was the previous Tailscale host — now deprecated in favour of Docker
-- Tailscale uses split tunneling by default — only homelab traffic goes through it, everything else uses your normal internet connection
+Do not use the retired recipe that installs `tailscale/tailscale` in Docker on `docker.sqrd.link`, or its old `TS_ROUTES=10.10.100.0/24`-only assumption. The former Tailscale LXC was `teelskeel`; it is the current router again per the current network reference.

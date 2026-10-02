@@ -2,110 +2,65 @@
 title: Services
 tags: [homelab, services, docker]
 created: 2026-03-30
-updated: 2026-03-30
+updated: 2026-09-27
+source: "[[Homie System Prompt]] and [[Network Reference]] (updated 2026-09-26); runtime status not queried"
 ---
 
 # Services
 
-## docker.sqrd.link · `10.10.100.75`
+> **Inventory status:** this is a documentation-based inventory, not a live container check. The former list mixed hosts and included a decommissioned VPS. Verify current container/service state in Arcane, Docker or the owning application before maintenance. Host/IP topology: [[Network Reference]].
 
-Main Docker VM on Proxmox. All containers have Traefik labels for automatic routing via `*.sqrd.link`.
+## Main Docker VM — centuries · `10.10.100.75`
 
-### Reverse proxy & networking
+Runs on Proxmox host `grimoire`. Documented core services include:
 
-| Container | Image | Notes |
-|---|---|---|
-| traefik | `traefik:latest` | Reverse proxy, ports 80/443/8080 exposed |
-
-### Media
-
-| Container | Image | Notes |
-|---|---|---|
-| jellyfin | linuxserver/jellyfin | Media server |
-| plex | LXC on `.15` | GPU passthrough for HW transcode |
-| sonarr | linuxserver/sonarr | TV show management |
-| radarr | linuxserver/radarr | Movie management |
-| bazarr | linuxserver/bazarr | Subtitles |
-| lidarr | linuxserver/lidarr | Music management |
-| prowlarr | linuxserver/prowlarr | Indexer manager |
-| sabnzbd | linuxserver/sabnzbd | Usenet downloader |
-| qbittorrent | linuxserver/qbittorrent | Torrent client |
-| overseerr | sctx/overseerr | Request management |
-
-### AI & automation
-
-| Container | Image | Notes |
-|---|---|---|
-| n8n-app | n8nio/n8n | Workflow automation |
-| n8n-mcp | ghcr.io/czlonkowski/n8n-mcp | MCP server for n8n |
-| n8n-db | postgres:16-alpine | n8n database |
-| openwebui | open-webui/open-webui | Ollama/LLM frontend |
-| semaphore | semaphore-custom:local | Ansible UI |
-
-### Infrastructure
-
-| Container | Image | Notes |
-|---|---|---|
-| netbox | netboxcommunity/netbox | IPAM + Ansible inventory |
-| netbox_postgres | postgres:17-alpine | Netbox database |
-| netbox_redis_cache | valkey/valkey:8.1-alpine | Netbox cache |
-| netbox_redis_task | valkey/valkey:8.1-alpine | Netbox task queue |
-| arcane | getarcaneapp/arcane | Docker management UI |
-| vaultwarden | vaultwarden/server | Password manager |
-| adguard-sync | bakito/adguardhome-sync | Syncs AdGuard 1→2 |
-| newt | fosrl/newt | Pangolin tunnel client |
-
-### Apps
-
-| Container | Image | Notes |
-|---|---|---|
-| immich_server | immich-app/immich-server | Photo management |
-| immich_machine_learning | immich-app/immich-machine-learning | ML for Immich |
-| immich_redis | redis:6.2-alpine | Immich cache |
-| immich_postgres | tensorchord/pgvecto-rs:pg14 | Immich database |
-| mealie | mealie-recipes/mealie | Recipe manager / meal planner |
-| seerr | seerr-team/seerr | — |
-
----
-
-## nastradamus · `10.10.100.12`
-
-| Service | Notes |
+| Service | Role / notes |
 |---|---|
-| Proxmox Backup Server | VM at `.7` |
-| AdGuard Home 2 | Docker, secondary DNS at `.2` |
-| Omada Controller | Docker, `omada.sqrd.link` |
-| Arcane | Docker management |
-| Immich | Not in active use |
-| Tdarr node | Not in active use |
+| Traefik | Reverse proxy for internal services; Cloudflare DNS challenge for TLS |
+| NetBox | IPAM and Ansible inventory; source of truth for hosts/IPs |
+| n8n | Workflow automation; database is PostgreSQL |
+| Semaphore | Ansible UI and scheduler; uses `SQRD-Link/the_codex` |
+| Media / app stack | The older inventory lists Jellyfin, Sonarr, Radarr, Bazarr, Lidarr, Prowlarr, SABnzbd, qBittorrent, Overseerr/Seerr, Mealie and Immich components. Treat these as previously documented workloads, not a verified current runtime list. |
+| Other previously listed services | Open WebUI, Vaultwarden, AdGuard sync, Newt and supporting PostgreSQL/Valkey containers; reconcile against the current Compose repo/Arcane before changing. |
 
----
+Compose and Ansible source of truth: `SQRD-Link/the_codex`, under `hosts/centuries/` and `ansible/`. Server-side compose paths are documented as `/srv/docker/compose/<app>/docker-compose.yml`; volumes are under `/srv/docker/volumes/<app>/`. Fetch current repository files before editing or deploying.
 
-## Hetzner VPS
+## nastradamus · TrueNAS · `10.10.10.20`
 
-| Container | Notes |
+Legacy service/macvlan address `10.10.100.12` remains in use.
+
+| Service | Address / notes |
 |---|---|
-| Pangolin | Public reverse proxy |
-| Gerbil | Tunnel server |
-| Newt | Tunnel client |
-| Arcane | Docker management |
-| n8n | Separate instance |
-| Waha | WhatsApp HTTP API |
-| Uptime Kuma | Public status page |
-| nginx website | prtsr.nl |
+| Proxmox Backup Server (`pbs`) | VM at `10.10.10.30` |
+| AdGuard Home 2 | `10.10.100.2`; secondary DNS, synced from AdGuard 1 |
+| Omada Controller | `10.10.100.12:30077`, also `omada.sqrd.link` |
+| Arcane | Docker manager, moved here from centuries |
+| Immich / Tdarr node | Older notes say inactive; status not live-verified |
 
----
+## Proxmox guests on grimoire
 
-## Other LXC services (Proxmox)
-
-| Host | IP | Service |
+| Guest | IP | Service |
 |---|---|---|
-| hassanova | `.55` | Home Assistant |
-| plex | `.15` | Plex (GPU passthrough) |
-| modcaves | `.40` | Minecraft (Docker in LXC) |
-| pangolin | `.253` | Pangolin reverse proxy |
-| teelskeel | `.13` | Tailscale (being migrated) |
+| `centuries` | `10.10.100.75` | Main Docker VM |
+| `pangolin` | `10.10.100.252` | Internal and public reverse-proxy edge |
+| `adguard` | `10.10.100.1` | Primary DNS |
+| `teelskeel` | `10.10.100.13` | Native Tailscale subnet router + exit node |
+| `plex` | `10.10.100.15` | Plex with GPU passthrough |
+| `modcaves` | `10.10.100.40` | Minecraft; Docker in LXC |
+| `hassanova` | `10.10.100.55` | Home Assistant; managed IoT devices are on VLAN 20 |
 
-## Codex
+`grimoire`, `nastradamus` and `hassanova` are intentionally tagged `no_ansible`; exclude them from bulk Ansible runs.
 
-All Docker Compose files are maintained in the GitHub repo `SQRD-Link/codex`.
+## Edge, DNS and domains
+
+- Internal service names use `*.sqrd.link`; AdGuard's wildcard resolves to Pangolin (`10.10.100.252`). Pangolin routes internal requests to services such as centuries' Traefik.
+- `grimoire.sqrd.link` and `nastradamus.sqrd.link` are exceptions that resolve to centuries' Traefik (`10.10.100.75`).
+- Public DNS for `prtsr.nl` is in Cloudflare and DNS-only. Pangolin on the home network is the public edge through the static home IP and router port-forwarding.
+- The Hetzner VPS `harbinger`, its tunnel stack, and its hosted services were decommissioned on 2026-09-05. Do not treat the old VPS service table as current or deploy there.
+
+## Deployment conventions
+
+- Prefer Docker Compose maintained in `SQRD-Link/the_codex`; read the current compose file before modifying it.
+- For new services on centuries, use the shared `proxy` network and Traefik labels where appropriate; a service name under `*.sqrd.link` also needs the relevant Pangolin route.
+- Keep secrets out of committed compose files; use the repo's documented secret/environment handling and include `.env.example` as appropriate.
+- For changes spanning hosts, prefer Ansible playbooks. Respect the `no_ansible` exclusions above.

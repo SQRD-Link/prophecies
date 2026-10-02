@@ -1,178 +1,165 @@
 ---
 title: Proxmox Rename - prox → grimoire
-tags: [homelab, proxmox, maintenance, infrastructure]
+tags:
+  - homelab
+  - proxmox
+  - maintenance
+  - infrastructure
 created: 2026-04-13
-updated: 2026-04-13
-status: planned
+updated: 2026-09-26
+status: done
 ---
 
-# Proxmox Rename: `prox` → `grimoire`
+# Proxmox rename: `prox` → `grimoire`
 
-Renaming the Proxmox hypervisor from `prox.sqrd.link` to `grimoire.sqrd.link` to match the homelab naming scheme (Nostradamus-themed). The grimoire is the book that summons things into existence — fitting for the hypervisor that runs everything else.
+Rename the Proxmox node itself so its hostname and node name match the naming scheme. NetBox, DNS and the docs already call it grimoire. Only the node still says `prox`.
 
-> ⚠️ **This is not a casual hostname change.** Proxmox bakes the node name into its cluster config and certificate paths. Do this deliberately, with backups verified first.
-
----
-
-## Pre-flight checklist
-
-- [ ] Verify PBS backups are current (check `almanac` share on nastradamus)
-- [ ] Note all running VMs and LXCs — have a list ready
-- [ ] Schedule a maintenance window (all VMs/LXCs will stay running, but Proxmox UI will restart)
-- [ ] Take a snapshot of the Proxmox host config if possible
+> ⚠️ Revised 2026-09-26. The original version of this note used a blanket `sed s/prox/grimoire/g` over `/etc/pve`. That would also rewrite every "proxmox" and "proxy" string in the storage, user and guest configs. Never run a substring sed over `/etc/pve`.
 
 ---
 
-## Step 1 — Update `/etc/hostname`
+## Before you start
+
+### Step 0: dissolve the leftover one-node cluster (do this first, in a separate session)
+
+`pvecm status` (2026-09-26) shows `sqrd-cluster`: one node, quorate, with the corosync ring on **10.10.100.8**, the legacy interface. The other members were decommissioned. Leaving it as is has two costs:
+
+- Renaming a node that is in a cluster is unsupported.
+- Retiring `10.10.100.8` would break corosync, and with it `/etc/pve`.
+
+Turn it into a standalone node. Guests keep running.
 
 ```bash
-echo "grimoire" > /etc/hostname
-```
-
----
-
-## Step 2 — Update `/etc/hosts`
-
-Edit `/etc/hosts` and replace every occurrence of `prox` with `grimoire`:
-
-```bash
-nano /etc/hosts
-```
-
-Change:
-```
-127.0.1.1    prox.sqrd.link prox
-10.10.100.8  prox.sqrd.link prox
-```
-To:
-```
-127.0.1.1    grimoire.sqrd.link grimoire
-10.10.100.8  grimoire.sqrd.link grimoire
-```
-
----
-
-## Step 3 — Rename the Proxmox node
-
-This is the critical part. Proxmox stores node identity in `/etc/pve/`.
-
-```bash
-# Stop the pve-cluster and corosync services
+ls /etc/pve/nodes/                 # expect prox plus the dirs of old, dead members
+cp -a /etc/pve/corosync.conf /root/corosync.conf.bak
 systemctl stop pve-cluster corosync
-
-# Mount the cluster filesystem in local mode
-pmxcfs -l
-
-# Rename all references from 'prox' to 'grimoire'
-find /etc/pve -type f | xargs grep -l "prox" | while read f; do
-  sed -i 's/prox/grimoire/g' "$f"
-done
-
-# Rename the node directory itself
-mv /etc/pve/nodes/prox /etc/pve/nodes/grimoire
-
-# Kill pmxcfs and restart services normally
+pmxcfs -l                          # local mode
+rm /etc/pve/corosync.conf
+rm -r /etc/corosync/*
 killall pmxcfs
-systemctl start pve-cluster corosync pvedaemon pveproxy pvestatd
+systemctl start pve-cluster
+pvecm status                       # should now fail with "Corosync config ... does not exist"
 ```
 
-> **Verify:** After restart, the Proxmox web UI should show `grimoire` as the node name.
+Then clean up the leftovers from the dead members:
 
----
+- `rm -r /etc/pve/nodes/<old-node>`, only for directories whose `qemu-server/` and `lxc/` are empty.
+- Remove their lines from `/etc/pve/priv/authorized_keys` and `/etc/pve/priv/known_hosts`.
+- Remove any `nodes <old-node>` restrictions in `/etc/pve/storage.cfg`.
 
-## Step 4 — Regenerate certificates
+Check the web UI and `qm list; pct list` before moving on.
 
-The old TLS certs will reference `prox`. Regenerate them:
+### Checklist
+
+- [ ] `pvecm status` reports **no cluster** (step 0 is done).
+- [ ] PBS (`10.10.10.30`) has a recent successful backup of every guest.
+- [ ] **Disable the n8n "Proxmox - Netbox sync" workflow.** Right after the rename, the new node has no guest configs until they are moved. The API then reports zero VMs, and the every-minute sync marks every VM in NetBox as `decommissioning`, then hard-deletes them after 24 hours.
+- [ ] Recommended first: change that sync to match on Proxmox VMID instead of name. A rename in Proxmox currently looks like a delete plus a create (this happened with proxy → pangolin on 2026-09-26).
+- [ ] Check that adguardhome-sync is current. AdGuard 1 (`10.10.100.1`) runs on grimoire, so DNS falls back to AdGuard 2 on nastradamus during the window.
+- [ ] Inventory every real reference, using whole-word matches only:
 
 ```bash
-pvecm updatecerts --force
+grep -rnw prox /etc/pve /etc/hosts /etc/hostname
 ```
 
-Or via the UI: Datacenter → grimoire → Certificates → Regenerate
+Plan for a maintenance window of about 30 to 45 minutes. Guests are stopped.
 
----
-
-## Step 5 — Update AdGuard DNS
-
-In AdGuard Home (`adguard.sqrd.link`):
-
-- Remove DNS rewrite: `prox.sqrd.link` → `10.10.100.8`
-- Add DNS rewrite: `grimoire.sqrd.link` → `10.10.100.8`
-
-Both AdGuard instances (`.1` and `.2`) — adguard-sync should propagate automatically, but verify.
-
----
-
-## Step 6 — Update Netbox
-
-In Netbox (`netbox.sqrd.link`):
-
-- Rename the device `prox` → `grimoire`
-- Update the primary FQDN to `grimoire.sqrd.link`
-- Check any tags or config context that reference the old name
-
----
-
-## Step 7 — Update Ansible / Semaphore
-
-- Check `ansible/netbox.yml` — if inventory is pulled dynamically from Netbox, this updates automatically once Netbox is updated
-- Check any hardcoded references to `prox` in playbooks under `ansible/playbooks/`
-- Update Semaphore task templates if any reference `prox` directly
-
----
-
-## Step 8 — Update the_codex repo
-
-Once the monorepo restructure is done:
-
-- Ensure the host folder is named `hosts/grimoire/` (not `hosts/prox/`)
-- Update README references
-
----
-
-## Step 9 — Update Proxmox Backup Server
-
-PBS (`10.10.100.7`) may have storage/backup jobs referencing the node name:
-
-- Log into PBS UI at `10.10.100.7:8007`
-- Check Datastore config and backup jobs for any `prox` references
-- Update if needed
-
----
-
-## Step 10 — Final verification
+## Step 1: stop guests
 
 ```bash
-# Confirm hostname
-hostname
-# → grimoire
-
-# Confirm Proxmox sees itself correctly
-pvesh get /nodes
-# → should list 'grimoire'
-
-# Check certificate CN
-openssl s_client -connect grimoire.sqrd.link:8006 2>/dev/null | openssl x509 -noout -subject
+for id in $(qm list | awk 'NR>1{print $1}'); do qm shutdown $id; done
+for id in $(pct list | awk 'NR>1{print $1}'); do pct shutdown $id; done
 ```
 
-Also verify:
-- [ ] Proxmox UI accessible at `grimoire.sqrd.link:8006`
-- [ ] All VMs and LXCs still listed and running
-- [ ] PBS backup jobs still functioning
-- [ ] `prox.sqrd.link` no longer resolves (or resolves to the same IP — either is fine, just don't leave stale DNS pointing somewhere wrong)
+## Step 2: hostname and /etc/hosts
+
+PVE requires the hostname to resolve to the node's real IP, not to 127.0.1.1.
+
+```bash
+hostnamectl set-hostname grimoire
+```
+
+`/etc/hosts` should contain this, and no `prox` lines and no `127.0.1.1 <hostname>` line:
+
+```
+10.10.10.10  grimoire.sqrd.link grimoire
+```
+
+```bash
+reboot
+```
+
+## Step 3: move the guest configs
+
+After the reboot, pmxcfs creates `/etc/pve/nodes/grimoire`. The configs are still under `prox`.
+
+```bash
+mv /etc/pve/nodes/prox/qemu-server/*.conf /etc/pve/nodes/grimoire/qemu-server/
+mv /etc/pve/nodes/prox/lxc/*.conf        /etc/pve/nodes/grimoire/lxc/
+[ -f /etc/pve/nodes/prox/host.fw ] && cp /etc/pve/nodes/prox/host.fw /etc/pve/nodes/grimoire/
+```
+
+## Step 4: fix the node references grep found
+
+These are typically only storage restrictions and pinned backup jobs. Use whole-word matches only.
+
+```bash
+sed -i 's/\bnodes prox\b/nodes grimoire/' /etc/pve/storage.cfg
+sed -i 's/\bnode prox\b/node grimoire/'   /etc/pve/jobs.cfg
+```
+
+## Step 5: keep graph history, then new certificates
+
+```bash
+systemctl stop rrdcached
+mv /var/lib/rrdcached/db/pve2-node/prox    /var/lib/rrdcached/db/pve2-node/grimoire
+mv /var/lib/rrdcached/db/pve2-storage/prox /var/lib/rrdcached/db/pve2-storage/grimoire
+systemctl start rrdcached
+pvecm updatecerts --force && systemctl restart pveproxy
+```
+
+## Step 6: verify, clean up, start guests
+
+```bash
+hostname                 # → grimoire
+pvesh get /nodes         # → grimoire only
+qm list; pct list        # all guests listed
+rm -r /etc/pve/nodes/prox   # only after every guest shows up under grimoire
+```
+
+Then start the guests. Any with onboot set also come up on the next reboot.
+
+---
+
+## After
+
+- [ ] Re-enable the n8n Proxmox sync. Check that no VM in NetBox is left in `decommissioning`.
+- [ ] Check that the PBS backup jobs still run.
+- [ ] Check the Proxmox MCP config and any Semaphore or Ansible variables that use `prox` as a hostname. The n8n sync uses `10.10.10.10`, so it is unaffected.
+- [ ] DNS: **do not** point `grimoire.sqrd.link` at the host. It deliberately resolves to centuries (Traefik). For direct access use `https://10.10.10.10:8006`, from the Management VLAN or over Tailscale.
+- [ ] NetBox: the device is already `grimoire.sqrd.link` with primary `10.10.10.10`. Nothing to change there.
 
 ---
 
 ## Rollback
 
-If something goes wrong before step 3, just revert `/etc/hostname` and `/etc/hosts` and reboot — no harm done.
-
-After step 3, rollback means repeating the process in reverse. The node rename is the point of no return — make sure backups are verified before crossing it.
+- **Before step 3:** revert the hostname and `/etc/hosts`, then reboot. No harm done.
+- **After step 3:** the old node directory stays until step 6, so move the configs back and revert the hostname.
 
 ---
 
 ## Related
 
 - [[Docker Host Migratie Plan LXC naar VM]]
-- Netbox: `grimoire.sqrd.link`
-- Proxmox UI: `https://grimoire.sqrd.link:8006`
+
+---
+
+## Execution log (2026-09-26)
+
+Done. The node is now `grimoire` (`10.10.10.10`, standalone), and all 7 guests run under it. Lessons learned:
+
+- **Step 0 lockout.** Stopping `pve-cluster` also removes root's SSH keys, because `/root/.ssh/authorized_keys` links into `/etc/pve`. Keep a console or a second root shell open.
+- **Pangolin after reboot.** Pangolin's Traefik came up with an empty route table, so every `*.sqrd.link` returned `404 page not found`. It recovered on its own after a few minutes. The Proxmox sync used `http://` and failed until its URLs were switched to https.
+- **RRD history.** `pvestatd` recreates empty files for the new name at boot. Put the old files over them with `mv -f` while `pvestatd` and `rrdcached` are stopped. With PVE 9 the directories are `pve-node-9.0/` and `pve-storage-9.0/`.
+- **HA leftovers.** An `HA` group and a stale `manager_status` from the 3-node era were removed. Backups are in `/root/ha-*.bak`.
+- **Still open.** `/etc/pve/nodes/prox` can be removed. The legacy `10.10.100.8` interface still exists, but nothing depends on it any more. The orphaned key `priv/zfs/10.10.100.12_id_rsa.pub` can go.

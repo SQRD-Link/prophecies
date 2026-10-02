@@ -2,105 +2,65 @@
 title: Ansible Workflow
 tags: [homelab, ansible, netbox, semaphore, iac]
 created: 2026-03-30
-updated: 2026-03-30
+updated: 2026-09-27
+source: "[[Homie System Prompt]] (current automation-stack reference)"
 ---
 
 # Ansible Workflow
 
-Infrastructure as Code using Netbox as dynamic inventory and Semaphore as the UI/scheduler.
+Infrastructure as Code for the homelab. **NetBox** is the IPAM/source of truth and dynamic inventory; **Semaphore** runs the playbooks from `SQRD-Link/the_codex`; Ansible performs the work on designated Linux hosts.
 
-## Stack
+## Current stack
 
-| Tool | Role | URL |
+| Tool | Role | Address / source |
 |---|---|---|
-| Netbox | IPAM + source of truth + Ansible inventory | `netbox.sqrd.link` |
-| Semaphore | Ansible UI, run playbooks, schedule tasks | `semaphore.sqrd.link` |
-| Ansible | Automation engine | runs via Semaphore |
+| NetBox | IPAM, source of truth and Ansible inventory | `netbox.sqrd.link` |
+| Semaphore | UI and scheduler for Ansible | `semaphore.sqrd.link` |
+| Ansible repository | Compose files, inventory and playbooks | `SQRD-Link/the_codex` |
+| Dynamic inventory | NetBox inventory plugin configuration | `ansible/inventory/netbox.yml` |
 
-## Architecture
+### Flow
 
-```
-Netbox (inventory source)
-    ↓ dynamic inventory plugin
-Semaphore (triggers playbooks)
-    ↓ runs ansible-playbook
-Target hosts (via SSH or API)
+```text
+NetBox → netbox.netbox.nb_inventory → Semaphore → ansible-playbook → selected hosts
 ```
 
-## Netbox as dynamic inventory
+Semaphore pulls the repository. Documented paths:
 
-Ansible's Netbox inventory plugin pulls hosts, IPs, and tags directly from Netbox. No static `hosts.ini` needed.
+- Playbooks: `ansible/playbooks/<playbook>.yml`
+- Inventory: `ansible/inventory/netbox.yml`
+- Global vars: `ansible/group_vars/all.yml` (documented `ansible_user: paulus`)
+- Collection requirements: `ansible/collections/requirements.yml`
 
-### Install the plugin
+## Inventory and credentials
 
-```bash
-pip install pynetbox
-ansible-galaxy collection install netbox.netbox
-```
+- The NetBox inventory plugin groups hosts by **tags**. Keep this aligned with actual NetBox tags and inventory plugin settings.
+- The NetBox API uses v2 tokens (`nbt_…`) sent as `Authorization: Bearer`.
+- Prefer environment/secret injection for the API token; never commit a real token to the repository.
+- Containers on centuries can reach NetBox at `http://netbox:8080` over the shared `proxy` Docker network. A different execution environment must use a reachable endpoint and corresponding TLS settings.
+- Semaphore uses Docker secrets under `/srv/docker/secrets/` for its admin password and encryption key, not ordinary `.env` entries, per the current automation notes.
+- Semaphore runs a custom `semaphore-netbox:local` image with `pytz`, `pynetbox` and `requests` installed.
 
-### Inventory config (`netbox.yml`)
+## Safety exclusions
 
-```yaml
-plugin: netbox.netbox.nb_inventory
-api_endpoint: http://netbox.sqrd.link
-token: "{{ lookup('env', 'NETBOX_TOKEN') }}"
-validate_certs: false
-config_context: true
-group_by:
-  - device_roles
-  - sites
-  - tags
-```
+The NetBox `no_ansible` tag on **hassanova**, **grimoire** and **nastradamus** is intentional. Bulk Linux playbooks must exclude these hosts. Do not treat “all inventory hosts” as a safe target; select an explicit group/limit and inspect the resolved inventory before a run. In particular, keep Home Assistant and the Proxmox/TrueNAS appliances out of generic `apt upgrade` playbooks.
 
-### Using it
+Use playbook check/diff modes where supported, review the target set, then run only the authorized operation. Proxmox guests and network appliances have their own owning systems; use the appropriate API/UI or a narrowly scoped playbook rather than assuming Ansible owns every host.
 
-```bash
-ansible-inventory -i netbox.yml --list
-ansible-playbook -i netbox.yml playbooks/update.yml
-```
+## Documented playbooks
 
-## Semaphore
-
-Semaphore provides a UI to run playbooks without needing CLI access.
-
-### Setup in Semaphore
-
-1. Add a **Key Store** entry for your SSH private key
-2. Add a **Repository** pointing to `SQRD-Link/codex` (or a dedicated `ansible` repo)
-3. Add an **Inventory** — select "File" type, point to `netbox.yml`, set Netbox token as env var
-4. Create **Task Templates** per playbook (e.g. "Update all servers", "Deploy docker stack")
-
-### Recommended playbooks to build
+The current repo notes these playbooks:
 
 | Playbook | Purpose |
 |---|---|
-| `update-hosts.yml` | `apt upgrade` across all LXC/VM hosts |
-| `deploy-docker.yml` | Pull latest images, recreate containers |
-| `backup-check.yml` | Verify PBS backups completed successfully |
-| `adguard-sync.yml` | Force sync AdGuard 1→2 |
-| `tailscale-status.yml` | Check Tailscale is connected on subnet router |
+| `ansible/playbooks/update.yml` | Host updates |
+| `ansible/playbooks/bootstrap-docker-lxc.yml` | Bootstrap Docker on intended LXC targets |
+| `ansible/playbooks/deploy-pangolin.yml` | Deploy/update Pangolin |
 
-## Recommended repo layout (`codex`)
+Before changing or invoking one, fetch its current contents from `SQRD-Link/the_codex`; do not use the obsolete `codex` repository path or old generic examples from this note's previous version.
 
-```
-codex/
-├── docker/
-│   ├── docker.sqrd.link/
-│   │   ├── docker-compose.yml
-│   │   └── .env.example
-│   └── nastradamus/
-│       └── docker-compose.yml
-├── ansible/
-│   ├── netbox.yml          # dynamic inventory
-│   ├── playbooks/
-│   │   ├── update-hosts.yml
-│   │   └── deploy-docker.yml
-│   └── roles/
-└── README.md
-```
+## Related automation
 
-## Tips
-
-- Tag hosts in Netbox with roles (e.g. `media`, `infra`, `docker`) — Ansible groups them automatically
-- Use Netbox's config context to store per-host variables (e.g. which compose files to deploy)
-- Semaphore can be triggered via webhook — hook it into n8n for event-driven automation
+- NetBox → Ansible inventory is also used by Semaphore; tag changes affect group membership and playbook targeting.
+- Omada → NetBox sync runs hourly for network devices/VLANs/prefixes; Proxmox → NetBox sync runs every minute and currently matches guests by name. These are n8n syncs, not Ansible tasks.
+- Current gaps documented elsewhere include improving the Proxmox sync to match by VMID and discovering guest IPs. Verify current workflow state before treating these as unresolved.

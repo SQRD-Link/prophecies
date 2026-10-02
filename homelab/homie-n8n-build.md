@@ -1,8 +1,14 @@
 ---
-title: "Homie — n8n Agent Build (Terry-inspired)"
-tags: [homelab, n8n, homie, automation, ai, project]
+title: Homie — n8n Agent Build (Terry-inspired)
+tags:
+  - homelab
+  - n8n
+  - homie
+  - automation
+  - ai
+  - project
 created: 2026-07-17
-updated: 2026-07-17
+updated: 2026-09-27
 ---
 
 # Homie — n8n Agent Build (Terry-inspired)
@@ -13,6 +19,8 @@ existing n8n on **centuries** (`10.10.100.75`). Brain: OpenAI. Notifications +
 approvals: the `robbot` Telegram bot. See also [[homie-system-prompt]],
 [[services]], [[network]].
 
+> **Status note (2026-09-27):** This is a design/build plan created 2026-07-17, not a live status report. Confirm the actual n8n workflows, credentials and approval branch before assuming a checklist item is implemented. Current network facts are in [[Network Reference]].
+>
 > Target for phase one: **read + approval-gated fixes.** Homie investigates on
 > its own, but never modifies anything without an explicit Telegram approval.
 
@@ -96,19 +104,8 @@ once Homie can be *told* what commands to run. See [Security model](#security-mo
 
 Before adding SSH-fix powers, two things about our stack are relevant:
 
-- **No log/monitoring stack yet — this is a known gap.** Right now Homie SSHes
-  `docker logs` on a cron. A proper centralised log stack (Grafana Loki +
-  Promtail/Alloy, or similar) would let Homie *query* logs instead: centralised,
-  historical, deduplicated, and no shell needed on every host. It isn't deployed,
-  so treat it as the v4 direction — a foundation to build later, not a phase-one
-  blocker. (Note: the Loki you may be thinking of lives in the Cloud86 work n8n,
-  not this lab — out of scope here.)
-- **Flat network, no VLANs yet.** n8n on centuries with SSH keys into other hosts
-  means a compromise of n8n = authenticated lateral movement across `10.10.100.0/24`.
-  The approval gate limits what Homie *will* do; it does nothing about what an
-  attacker who owns the n8n container *can* do. This is another argument for the
-  socket-proxy / least-privilege setup below, and it ties into the planned VLAN
-  segmentation and the Infisical secrets work.
+- **No log/monitoring stack yet — this is a known gap (per the 2026-07 design note; re-check before implementation).** The planned watcher SSHes `docker logs` on a schedule. A central log stack (Grafana Loki + Promtail/Alloy, or similar) could provide centralised, historical, deduplicated queries without shell access on every host. It was not documented as deployed in this plan; verify actual lab state before treating that as current.
+- **VLAN segmentation is live (2026-09-25).** n8n runs on centuries in Servers VLAN 100, and `la-porta` enforces first-match inter-VLAN ACLs, including the hardened Servers → Management boundary. A compromised n8n instance may still use credentials and permitted network paths. Telegram approval controls Homie's intended actions; it does not constrain an attacker who controls n8n. Keep socket-proxy and least-privilege protections; VLANs and approval are complementary, not substitutes. See [[Network Reference]] for current topology and ACL facts.
 
 ---
 
@@ -180,9 +177,7 @@ Then in the main workflow add a **Call n8n Workflow Tool**
 Reuse Homie's personality from [[homie-system-prompt]], scoped to read-only:
 
 ```
-You are Homie, Richard's homelab sysadmin. You manage a Proxmox/Docker lab on the
-flat 10.10.100.0/24 network. Keep it real — direct, practical, no fluff. Richard
-is an experienced self-hoster.
+You are Homie, Richard's homelab sysadmin. You manage a Proxmox/Docker lab split across VLANs, with Servers on 10.10.100.0/24 and Management on 10.10.10.0/24. Inter-VLAN access is filtered by `la-porta` ACLs; consult [[Network Reference]] for current details. Keep it real — direct, practical, no fluff. Richard is an experienced self-hoster.
 
 You investigate issues by running READ-ONLY diagnostics via the run_diagnostic
 tool. You form a hypothesis, run a command to test it, read the output, and
@@ -287,8 +282,7 @@ monitor into an active-but-gated responder.
 
 ## Security model
 
-This is the part that actually matters, given n8n has SSH into the lab and the
-network is flat.
+This is the part that actually matters, given n8n has SSH into the lab. VLAN segmentation and gateway ACLs reduce reachable paths, but any credentials held by n8n still grant access to their permitted targets; do not treat network segmentation as a replacement for least privilege.
 
 **Two identities, least privilege:**
 

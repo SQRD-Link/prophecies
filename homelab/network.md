@@ -2,65 +2,66 @@
 title: Network
 tags: [homelab, network, vlan, dns, omada]
 created: 2026-03-30
-updated: 2026-03-30
+updated: 2026-09-27
+source: "[[Network Reference]] (live-state summary, updated 2026-09-26)"
 ---
 
 # Network
 
-## Current Setup
+> **Current state:** VLAN segmentation is complete. This replaces the old flat-network/planned-VLAN description. For the compact authoritative topology, ACL facts and naming rules, see [[Network Reference]]. Older plans in this note's history should not be treated as live configuration.
 
-Single flat subnet: `10.10.100.0/24`
+## VLANs
 
-- **Gateway:** ISP router
-- **Switch/AP:** TP-Link Omada (`omada.sqrd.link`)
-- **DNS:** AdGuard Home (primary `.1`, secondary `.2`)
-- **Wildcard DNS:** `*.sqrd.link → 10.10.100.253` (Pangolin handles routing from there)
+| VLAN | ID | Subnet | Purpose | Advertised via Tailscale |
+|---|---:|---|---|---|
+| Management | 10 | `10.10.10.0/24` | Proxmox, TrueNAS, PBS, switch, APs | Yes |
+| Servers | 100 | `10.10.100.0/24` | VMs, LXCs and Docker services | Yes |
+| IoT | 20 | `10.10.20.0/24` | Smart-home devices | No |
+| Trusted | 30 | `10.10.30.0/24` | Personal and casting/media devices | No |
+| Guest | 40 | `10.10.40.0/24` | Guest Wi-Fi; internet only | No |
+| Leo | 50 | `10.10.50.0/24` | Leo's devices; scheduled SSID | No |
 
-## Planned: VLAN Segmentation
+## Network infrastructure
 
-Since the Omada switch supports VLANs, this is the recommended layout. Keeps IoT devices isolated, limits blast radius, and lets Tailscale do clean subnet routing per segment.
-
-| VLAN | ID | Subnet | Purpose |
-|---|---|---|---|
-| Management | 10 | `10.10.10.0/24` | Proxmox, TrueNAS, switches, APs |
-| Servers | 100 | `10.10.100.0/24` | Current flat network — LXC, VMs, Docker |
-| IoT | 20 | `10.10.20.0/24` | Home Assistant devices, smart plugs |
-| Trusted | 30 | `10.10.30.0/24` | Personal devices (laptops, phones) |
-| Guest | 40 | `10.10.40.0/24` | Guest WiFi — internet only, no LAN access |
-
-### VLAN inter-routing rules (recommended)
-
-- Trusted → Servers: allowed
-- Management → Servers: allowed
-- IoT → Servers: blocked (Home Assistant is the exception — allow `.55` only)
-- Guest → everything: blocked
-
-### Implementation order
-
-1. Create VLANs in Omada controller
-2. Tag trunk ports to Proxmox and nastradamus
-3. Add VLAN interfaces in Proxmox (Linux bridges per VLAN)
-4. Migrate management interfaces to VLAN 10
-5. Move IoT devices to VLAN 20
-6. Update AdGuard to handle DNS per VLAN
-7. Update Tailscale subnet routes to cover all new subnets
-
-## DNS
-
-| Server | IP | Role |
+| Device | Address | Role |
 |---|---|---|
-| AdGuard Home 1 | `10.10.100.1` | Primary — LXC on Proxmox |
-| AdGuard Home 2 | `10.10.100.2` | Secondary — Docker on nastradamus, synced via adguardhome-sync |
+| `la-porta` | `.254` in each VLAN | TP-Link ER605 gateway; first-match-wins inter-VLAN ACL |
+| `il-cortile` | `10.10.10.201` | TP-Link TL-SG2008P switch; PoE for APs |
+| `piano-terra` | `10.10.10.202` | EAP245, downstairs |
+| `piano-nobile` | `10.10.10.203` | EAP225, upstairs |
+| `la-rocca` | Omada/NetBox site | Site name; refer to Omada site by `siteId` in integrations |
 
-### Key DNS entries
+Hosts and infrastructure use separate naming themes: hosts/storage follow the Nostradamus theme; network/site names use the Italian/Da Vinci map theme. Rename a device in its owning system (Omada for network gear, Proxmox for guests), not only in NetBox.
 
-| Record | Target | Notes |
+## Important hosts
+
+| Host | Address | Role |
 |---|---|---|
-| `*.sqrd.link` | `10.10.100.253` | Wildcard → Pangolin |
-| `omada.sqrd.link` | `10.10.100.12:30077` | Omada controller |
+| `grimoire` | `10.10.10.10` | Standalone Proxmox node; renamed from `prox`; old `10.10.100.8` is retired |
+| `nastradamus` | `10.10.10.20`; legacy `10.10.100.12` remains in use | TrueNAS Scale; legacy address supports macvlan apps and related services |
+| `pbs` | `10.10.10.30` | Proxmox Backup Server VM on TrueNAS |
+| `centuries` | `10.10.100.75` | Main Docker VM and Traefik |
+| `pangolin` | `10.10.100.252` | Internal and public reverse-proxy edge |
+| `adguard` | `10.10.100.1` | Primary AdGuard Home |
+| `teelskeel` | `10.10.100.13` | Tailscale subnet router, native `tailscaled` on Ubuntu LXC |
+| `plex` | `10.10.100.15` | Plex LXC with GPU passthrough |
+| `modcaves` | `10.10.100.40` | Minecraft services in Docker-in-LXC |
+| `hassanova` | `10.10.100.55` | Home Assistant; its managed IoT devices are on VLAN 20 |
 
-## Reverse Proxy
+## DNS and public access
 
-**Internal:** Pangolin at `10.10.100.253` — all `*.sqrd.link` routes terminate here. New service = new route in Pangolin, no DNS change needed.
+- AdGuard Home 1 (`10.10.100.1`) is primary; AdGuard Home 2 (`10.10.100.2`) is secondary and synced via `adguardhome-sync`.
+- `*.sqrd.link` resolves to Pangolin at `10.10.100.252`.
+- `grimoire.sqrd.link` and `nastradamus.sqrd.link` are deliberate AdGuard rewrites to centuries' Traefik at `10.10.100.75`.
+- `omada.sqrd.link` reaches the controller at `10.10.100.12:30077`.
+- `prtsr.nl` is public DNS in Cloudflare, DNS-only (not proxied). The static home IP and router port-forward expose Pangolin as the public edge. The Hetzner VPS/tunnel path has been decommissioned.
 
-**Public:** Pangolin on Hetzner VPS (`proxy.prtsr.nl`) — tunnels inbound traffic back to internal Pangolin via Gerbil/Newt.
+## Inter-VLAN policy (summary)
+
+The ER605 gateway `la-porta` enforces ACLs for routed traffic; rule order is first-match-wins. Servers, IoT, Trusted, Leo and Guest are denied access to Management by default, with narrow exceptions for `centuries` and `teelskeel` to specific management services on `grimoire` and `nastradamus`. Client VLANs cannot directly reach Servers; approved application access goes through Pangolin. Home Assistant has specific IoT/Trusted access, and Leo has narrow service exceptions. Consult [[Network Reference]] for the documented rule summary; verify the live Omada UI before changing ACLs.
+
+## Tailscale
+
+Tailscale runs natively on `teelskeel` (`10.10.100.13`), not in Docker. It advertises the Servers (`10.10.100.0/24`) and Management (`10.10.10.0/24`) networks and acts as an exit node. IoT, Trusted, Leo and Guest routes are intentionally not advertised. Because DNS rewrites for `grimoire.sqrd.link` and `nastradamus.sqrd.link` point to centuries, use raw management IPs when testing the Management route.
+
+For setup and safe verification details, see [[tailscale-setup]]. For current ACL details and the network diagram, see [[Network Reference]].

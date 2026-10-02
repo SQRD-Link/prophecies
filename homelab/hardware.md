@@ -2,62 +2,60 @@
 title: Hardware
 tags: [homelab, hardware]
 created: 2026-03-30
-updated: 2026-03-30
+updated: 2026-09-27
+source: "[[Network Reference]] (topology updated 2026-09-26)"
 ---
 
-# Hardware
+# Hardware and hosts
 
-## nastradamus · `10.10.100.12`
+> Addresses and guest roles below reflect the current homelab notes, not a live hardware probe. Use NetBox/Proxmox/TrueNAS to verify before maintenance. See [[Network Reference]] for current VLAN topology.
 
-- **OS:** TrueNAS Scale
-- **CPU:** Intel Core i5-10500
-- **RAM:** 16 GB
-- **Storage:** 12 TB (pool)
-- **Role:** NAS, primary storage, container host
+## nastradamus · TrueNAS Scale
 
-### Services on nastradamus
+- **Management:** `10.10.10.20` (VLAN 10)
+- **Legacy service address:** `10.10.100.12` (VLAN 100), still used by macvlan apps and some integrations/configuration
+- **CPU / RAM:** Intel Core i5-10500 / 16 GB
+- **Storage:** documented as a 12 TB pool
+- **Role:** NAS, primary storage, Docker host, and host for the PBS VM
+- **Datasets documented:** `dataverse` (main pool), `almanac` (backups), `automatons` (TrueNAS apps), `chronicles` (Immich photos), `visions` (media/arr suite)
 
-| Service | Address | Notes |
+### Documented services
+
+| Service | Address / placement | Notes |
 |---|---|---|
-| Proxmox Backup Server | `10.10.100.7:8007` | VM |
-| AdGuard Home 2 | `10.10.100.2` | Docker, secondary DNS |
+| Proxmox Backup Server (`pbs`) | `10.10.10.30` | VM hosted on TrueNAS |
+| AdGuard Home 2 | `10.10.100.2` | Secondary DNS; synced from AdGuard 1 |
 | Omada Controller | `10.10.100.12:30077` / `omada.sqrd.link` | Docker |
-| Arcane | — | Docker |
-| Immich | — | Docker, not in active use |
-| Tdarr node | — | Docker, not in active use |
+| Arcane | `docker.sqrd.link` | Arcane manager moved here from centuries |
+| Immich | — | Previously documented as inactive; verify before relying on this status |
+| Tdarr node | — | Previously documented as inactive; verify before relying on this status |
 
----
+## grimoire · Proxmox VE
 
-## prox.sqrd.link · `10.10.100.8`
+- **Management:** `10.10.10.10` (VLAN 10)
+- **Status:** standalone Proxmox node; renamed from `prox` on 2026-09-26; former single-node cluster was dissolved. The old `10.10.100.8` address is retired.
+- **CPU / RAM:** Intel Core i5-10500T / 32 GB
+- **Storage documented:** 256 GB SSD for OS and 1 TB NVMe for data
+- **Role:** hypervisor for VMs and LXC containers
 
-- **OS:** Proxmox VE
-- **CPU:** Intel Core i5-10500T
-- **RAM:** 32 GB
-- **Storage:** 256 GB SSD (OS), 1 TB NVMe (data)
-- **Role:** Hypervisor — VMs and LXC containers
+### Documented guests
 
-### LXC Containers
-
-| Name | IP | Role |
+| Guest | IP | Role |
 |---|---|---|
-| AdGuard Home 1 | `10.10.100.1` | Primary DNS |
-| teelskeel | `10.10.100.13` | Tailscale (legacy LXC, replaced by Docker) |
-| plex | `10.10.100.15` | Plex Media Server (GPU passthrough for HW transcode) |
-| modcaves | `10.10.100.40` | Minecraft servers (Docker in LXC) |
-| pangolin | `10.10.100.253` | Reverse proxy + auth (Pangolin) |
-| hassanova | `10.10.100.55` | Home Assistant |
-| docker | `10.10.100.75` | Main Docker VM — see [[services]] |
+| `centuries` | `10.10.100.75` | Main Docker VM: Traefik, NetBox, n8n, Semaphore and other services |
+| `pangolin` | `10.10.100.252` | Internal and public reverse-proxy edge |
+| `adguard` | `10.10.100.1` | AdGuard Home 1, primary DNS |
+| `teelskeel` | `10.10.100.13` | Ubuntu LXC; native Tailscale subnet router and exit node |
+| `plex` | `10.10.100.15` | Plex LXC with GPU passthrough |
+| `modcaves` | `10.10.100.40` | Minecraft servers (Docker inside LXC) |
+| `hassanova` | `10.10.100.55` | Home Assistant; intentionally tagged `no_ansible` |
 
-### Todo
+`grimoire`, `nastradamus` and `hassanova` are intentionally excluded from bulk Ansible runs (`no_ansible`). Playbooks are for the designated Linux server hosts, not all Proxmox guests or appliances.
 
-- [ ] GPU passthrough for Plex (to enable hardware transcoding in Docker)
-- [ ] Migrate teelskeel Tailscale to Docker on docker.sqrd.link
+## Retired infrastructure
 
----
+- **Hetzner `harbinger`:** VPS decommissioned on 2026-09-05. It is not a live host and must not be used as a deployment target. Public-edge duties moved to Pangolin on the home connection.
 
-## Hetzner VPS
+## Maintenance notes
 
-- **Role:** Public edge node
-- **Services:** Pangolin (public), Gerbil, Newt, Waha, Uptime-Kuma, n8n, website (nginx)
-- **Domains:** `proxy.prtsr.nl`, `prtsr.nl`
-- **Tunnel:** Points back to internal `pangolin.sqrd.link`
+The older TODO about enabling Plex GPU passthrough is obsolete: Plex already has documented GPU passthrough. The current known gap is that `centuries` does not have GPU passthrough. Verify actual hardware/guest configuration in Proxmox before changing passthrough settings.
